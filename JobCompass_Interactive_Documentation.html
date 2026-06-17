@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobCompass UX Case Study & Product Documentation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        neutralDark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+
+    <!-- Global App Shell Wrapper -->
+    <div class="flex min-h-screen">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="hidden lg:flex flex-col w-80 bg-white border-r border-slate-200 dark:bg-slate-900 dark:border-slate-800 fixed h-screen overflow-y-auto z-30 transition-colors duration-300">
+            <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-tr from-sky-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-sky-500/20">
+                        <i class="fa-solid fa-compass text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold bg-gradient-to-r from-sky-600 to-indigo-600 dark:from-sky-400 dark:to-indigo-400 bg-clip-text text-transparent">JobCompass</h1>
+                        <p class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Interactive Documentation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Links with Numbered Prefixes -->
+            <nav class="flex-1 px-4 py-6 space-y-1">
+                <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Documentation</p>
+                <a href="#hero" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-house text-slate-400 group-hover:text-brand-500"></i> Home Summary
+                </a>
+                <a href="#positioning" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-bullseye text-slate-400 group-hover:text-brand-500"></i> 1. Positioning Statement
+                </a>
+                <a href="#cx-framework" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-chart-line text-slate-400 group-hover:text-brand-500"></i> 2. CX Metrics Framework
+                </a>
+                <a href="#journey-map" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-route text-slate-400 group-hover:text-brand-500"></i> 3. User Journey Map
+                </a>
+                <a href="#hypothesis" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-lightbulb text-slate-400 group-hover:text-brand-500"></i> 4. Demand Hypothesis
+                </a>
+                <a href="#solution-testing" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-flask text-slate-400 group-hover:text-brand-500"></i> 5. Solution & Epic Testing
+                </a>
+                <a href="#info-architecture" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-sitemap text-slate-400 group-hover:text-brand-500"></i> 6. Information Architecture
+                </a>
+                <a href="#faqs" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-circle-question text-slate-400 group-hover:text-brand-500"></i> 7. Frequently Asked Questions
+                </a>
+                <a href="#appendix" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group">
+                    <i class="fa-solid fa-images text-slate-400 group-hover:text-brand-500"></i> App Screenshots
+                </a>
+                
+                <div class="pt-6 border-t border-slate-100 dark:border-slate-800 mt-6">
+                    <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Live Artifacts</p>
+                    <a href="https://jobcompass-191253016115.asia-southeast1.run.app" target="_blank" class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-sky-600 hover:bg-sky-50 dark:text-sky-400 dark:hover:bg-sky-950/40 transition-all">
+                        <span>Launch Interactive Prototype</span> <i class="fa-solid fa-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Sidebar Profile Panel -->
+            <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                <div class="mb-4 text-left">
+                    <p class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Documented by</p>
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-slate-100 mt-1">Merlin Cheng</h4>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="toggleTheme()" class="flex items-center justify-center gap-2 p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium transition-all">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i> Theme
+                    </button>
+                    <a href="https://www.linkedin.com/in/merlinkun/" target="_blank" class="flex items-center justify-center gap-2 p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 dark:text-slate-100 rounded-lg text-xs font-medium transition-all">
+                        <i class="fa-brands fa-linkedin text-blue-600"></i> Connect
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="flex-1 lg:ml-80 min-h-screen px-4 md:px-8 py-12 transition-colors duration-300">
+            
+            <!-- Mobile Header -->
+            <div class="flex lg:hidden items-center justify-between p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <span class="font-bold text-lg">JobCompass</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="toggleTheme()" class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-300">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-300">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Overlay -->
+            <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm">
+                <div class="absolute right-0 top-0 bottom-0 w-72 bg-white dark:bg-slate-900 p-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold">Navigation</span>
+                            <button onclick="toggleMobileMenu()" class="p-2 border rounded-lg"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <nav class="flex flex-col gap-3">
+                            <a href="#positioning" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">1. Positioning Statement</a>
+                            <a href="#cx-framework" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">2. CX Metrics</a>
+                            <a href="#journey-map" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">3. Journey Map</a>
+                            <a href="#hypothesis" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">4. Demand Hypothesis</a>
+                            <a href="#solution-testing" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">5. Epic Testing</a>
+                            <a href="#info-architecture" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">6. Information Architecture</a>
+                            <a href="#faqs" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">7. FAQs</a>
+                            <a href="#appendix" onclick="toggleMobileMenu()" class="text-sm font-medium hover:text-sky-500">App Screenshots</a>
+                        </nav>
+                    </div>
+                    <div class="border-t pt-4">
+                        <a href="https://jobcompass-191253016115.asia-southeast1.run.app" target="_blank" class="block text-center py-2 bg-sky-500 text-white rounded-lg font-bold text-sm">Launch Interactive Prototype</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <section id="hero" class="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 md:p-12 mb-12 shadow-xl shadow-slate-100 dark:shadow-none transition-all">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-tr from-sky-300 to-indigo-300 rounded-full filter blur-3xl opacity-10 dark:opacity-5"></div>
+                
+                <div class="relative z-10 max-w-4xl">
+                    <span class="px-3 py-1 bg-sky-50 text-sky-600 dark:bg-sky-950/50 dark:text-sky-400 rounded-full text-xs font-bold uppercase tracking-wider mb-6 inline-block">Product Strategy Spec</span>
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
+                        JobCompass: Navigating the Career Pipeline
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl font-normal">
+                        A focused tracking architecture solving job search fragmentation. Designed specifically for active job seekers tailoring multiple resumes, storing complex descriptions, and managing time-sensitive interview milestones.
+                    </p>
+
+                    <!-- Interactive Quick Stats Row -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-center">
+                            <span class="block text-2xl font-extrabold text-sky-600 dark:text-sky-400">1 Unified</span>
+                            <span class="text-xs text-slate-400 font-semibold uppercase">Command Center</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-center">
+                            <span class="block text-2xl font-extrabold text-indigo-600 dark:text-indigo-400">1:Many</span>
+                            <span class="text-xs text-slate-400 font-semibold uppercase">Resume Linkage</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-center">
+                            <span class="block text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">Auto-Gen</span>
+                            <span class="text-xs text-slate-400 font-semibold uppercase">Calendar Alerts</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-center">
+                            <span class="block text-2xl font-extrabold text-amber-600 dark:text-amber-400">Secure</span>
+                            <span class="text-xs text-slate-400 font-semibold uppercase">Google Auth / Local</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://jobcompass-191253016115.asia-southeast1.run.app" target="_blank" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white rounded-xl font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-rocket"></i> Launch Interactive Prototype
+                        </a>
+                        <a href="https://merlinkun.figma.site/showcase" target="_blank" class="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 dark:text-slate-100 rounded-xl font-bold transition-all flex items-center gap-2">
+                            <i class="fa-brands fa-figma"></i> View Figma Portfolio
+                        </a>
+                        <a href="https://docs.google.com/document/d/1-mrdUJJB_By2oV4wsIv5O4Dt4bhLdapWbdSRSb6tlRA/edit?usp=drive_link" target="_blank" class="px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 dark:text-slate-100 rounded-xl font-bold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-file-word text-blue-600"></i> Google Doc Documentation
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 1: Positioning Statement -->
+            <section id="positioning" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-50 dark:bg-indigo-950 rounded-xl flex items-center justify-center text-indigo-500">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 1: Positioning Statement</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <p class="text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300">
+                            "For <span class="text-indigo-500 font-bold">active job seekers</span> who are applying to multiple roles and tailoring their resumes for different job descriptions..."
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-400 text-left">
+                            JobCompass is a job application tracking and resume management app that helps users clearly track their application pipeline, monitor progress, and organise job-specific resumes in one place.
+                        </p>
+                        <div class="bg-indigo-50/50 dark:bg-indigo-950/20 border-l-4 border-indigo-500 p-4 rounded-r-xl">
+                            <p class="text-sm text-slate-600 dark:text-slate-300 italic text-left">
+                                "Unlike manual spreadsheets, notes apps, or scattered folders, JobCompass combines application status tracking, visual pipeline analytics, and resume-job linking into a single focused workflow designed specifically for job search management."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 bg-slate-50 dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <h4 class="font-bold text-sm text-slate-400 uppercase tracking-wider mb-4 text-left">Core Differentiators</h4>
+                        <ul class="space-y-3 text-left">
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 flex items-center justify-center mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <span class="text-sm font-semibold">Active Document Vault Integrations</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 flex items-center justify-center mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <span class="text-sm font-semibold">Automatic Calendar Milestone Syncing</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 flex items-center justify-center mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <span class="text-sm font-semibold">Context-Match Index Analytics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 2: Customer Experience Metrics Framework -->
+            <section id="cx-framework" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-50 dark:bg-emerald-950 rounded-xl flex items-center justify-center text-emerald-500">
+                            <i class="fa-solid fa-chart-line text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 2: Customer Experience (CX) Metrics Framework</h2>
+                    </div>
+                    <!-- CX Level Pill Buttons -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 bg-slate-50 dark:bg-slate-800 p-1 rounded-xl">
+                        <button onclick="filterCX('all')" id="cx-all-btn" class="px-3 py-1.5 bg-sky-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all">All Stages</button>
+                        <button onclick="filterCX('Acquisition')" class="px-3 py-1.5 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-bold transition-all">Acquisition</button>
+                        <button onclick="filterCX('Onboarding')" class="px-3 py-1.5 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-bold transition-all">Onboarding</button>
+                        <button onclick="filterCX('Engagement')" class="px-3 py-1.5 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-bold transition-all">Engagement</button>
+                        <button onclick="filterCX('Outcomes')" class="px-3 py-1.5 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-bold transition-all">Outcomes</button>
+                        <button onclick="filterCX('Retention')" class="px-3 py-1.5 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-bold transition-all">Retention</button>
+                    </div>
+                </div>
+
+                <!-- CX Table Content -->
+                <div class="overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50/70 dark:bg-slate-800/50">
+                                <th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Stage</th>
+                                <th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Product Value Translation</th>
+                                <th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Success Metric</th>
+                                <th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Success Threshold</th>
+                                <th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Window</th>
+                                <th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Live Experiment Plan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cx-table-body" class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Acquisition -->
+                            <tr class="cx-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-colors text-left" data-stage="Acquisition">
+                                <td class="p-4"><span class="px-2.5 py-1 bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 text-xs font-extrabold rounded-lg">1. Acquisition</span></td>
+                                <td class="p-4 text-sm font-semibold max-w-xs">Job seekers choose JobCompass over traditional note platforms.</td>
+                                <td class="p-4 text-sm">Signup / intent-to-use rate</td>
+                                <td class="p-4 text-sm font-bold text-slate-600 dark:text-slate-300">&gt; 40–50% signups/clicks</td>
+                                <td class="p-4 text-sm text-slate-400">First session / load</td>
+                                <td class="p-4 text-xs italic">Test variant headings (e.g. "Command Centre" vs "Organizer").</td>
+                            </tr>
+                            <!-- Onboarding -->
+                            <tr class="cx-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-colors text-left" data-stage="Onboarding">
+                                <td class="p-4"><span class="px-2.5 py-1 bg-purple-50 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 text-xs font-extrabold rounded-lg">2. Onboarding</span></td>
+                                <td class="p-4 text-sm font-semibold max-w-xs">User successfully logs their first fully scoped application record.</td>
+                                <td class="p-4 text-sm">Application completion rate</td>
+                                <td class="p-4 text-sm font-bold text-slate-600 dark:text-slate-300">&gt; 70% logged target</td>
+                                <td class="p-4 text-sm text-slate-400">Within 24 hours</td>
+                                <td class="p-4 text-xs italic">Test setup runs, field indicators, and empty state guides.</td>
+                            </tr>
+                            <!-- Engagement -->
+                            <tr class="cx-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-colors text-left" data-stage="Engagement">
+                                <td class="p-4"><span class="px-2.5 py-1 bg-amber-50 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 text-xs font-extrabold rounded-lg">3. Engagement</span></td>
+                                <td class="p-4 text-sm font-semibold max-w-xs">Users active in pipeline, altering stages & uploading documents.</td>
+                                <td class="p-4 text-sm">Update frequency / linking rate</td>
+                                <td class="p-4 text-sm font-bold text-slate-600 dark:text-slate-300">&gt; 60% update, &gt; 40% link</td>
+                                <td class="p-4 text-sm text-slate-400">7-Day baseline</td>
+                                <td class="p-4 text-xs italic">Test action shortcuts, notifications, and linkage reminders.</td>
+                            </tr>
+                            <!-- Outcomes -->
+                            <tr class="cx-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-colors text-left" data-stage="Outcomes">
+                                <td class="p-4"><span class="px-2.5 py-1 bg-teal-50 text-teal-600 dark:bg-teal-950/50 dark:text-teal-400 text-xs font-extrabold rounded-lg">4. Outcomes</span></td>
+                                <td class="p-4 text-sm font-semibold max-w-xs">Users self-report clearer pipeline organization and control.</td>
+                                <td class="p-4 text-sm">Self-reported clarity score</td>
+                                <td class="p-4 text-sm font-bold text-slate-600 dark:text-slate-300">&gt; 70% clear rating</td>
+                                <td class="p-4 text-sm text-slate-400">2-4 Weeks / 5+ logs</td>
+                                <td class="p-4 text-xs italic">Test visual progress charts, interview prep, and comparisons.</td>
+                            </tr>
+                            <!-- Retention -->
+                            <tr class="cx-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-colors text-left" data-stage="Retention">
+                                <td class="p-4"><span class="px-2.5 py-1 bg-pink-50 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400 text-xs font-extrabold rounded-lg">5. Retention</span></td>
+                                <td class="p-4 text-sm font-semibold max-w-xs">Users return continually through the duration of their active search.</td>
+                                <td class="p-4 text-sm">7, 14, 30-day retention</td>
+                                <td class="p-4 text-sm font-bold text-slate-600 dark:text-slate-300">&gt; 50% returned (7D)</td>
+                                <td class="p-4 text-sm text-slate-400">Ongoing (30 Days+)</td>
+                                <td class="p-4 text-xs italic">Test weekly wrap-ups and "stale logs needing actions."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Part 3: User Journey Map -->
+            <section id="journey-map" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-sky-50 dark:bg-sky-950 rounded-xl flex items-center justify-center text-sky-500">
+                        <i class="fa-solid fa-route text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 3: User Journey Map</h2>
+                </div>
+
+                <div class="mb-6 text-left">
+                    <span class="text-sm font-bold text-slate-400 uppercase tracking-wider block mb-1">Core Structural Pipeline Sequence Map</span>
+                    <div class="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                        <span>Access</span> <i class="fa-solid fa-arrow-right text-xs text-slate-300"></i>
+                        <span>Track</span> <i class="fa-solid fa-arrow-right text-xs text-slate-300"></i>
+                        <span>Understand</span> <i class="fa-solid fa-arrow-right text-xs text-slate-300"></i>
+                        <span>Plan</span> <i class="fa-solid fa-arrow-right text-xs text-slate-300"></i>
+                        <span>Manage Documents</span>
+                    </div>
+                </div>
+
+                <!-- 10-Stage Navigation Directory (Replaces Simulated Chart) -->
+                <div class="mb-8 p-6 bg-slate-50/50 dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800 rounded-2xl">
+                    <div class="flex justify-between items-center mb-4 border-b border-slate-100 dark:border-slate-800 pb-3">
+                        <span class="text-xs font-black uppercase text-slate-400 tracking-wider">User Journey Stage Directory (Click to explore)</span>
+                        <span id="active-step-badge" class="text-xs font-bold text-sky-600 bg-sky-50 dark:bg-sky-950/50 dark:text-sky-400 px-2.5 py-1 rounded-full">Viewing Stage 1</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
+                        <!-- Stage 1 Button -->
+                        <button onclick="setActiveStep(1)" id="step-btn-1" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-sky-500 shadow-md shadow-sky-500/5 hover:border-sky-500 active-step-style">
+                            <span class="text-xs font-bold text-sky-500 dark:text-sky-400">Stage 01</span>
+                            <span class="text-xs font-extrabold text-slate-800 dark:text-slate-100 line-clamp-2 mt-1 leading-tight flex-1">Discover / Access JobCompass</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-magnifying-glass text-xs text-sky-500"></i>
+                                <span class="text-[10px] text-sky-500 font-extrabold uppercase">Active</span>
+                            </div>
+                        </button>
+
+                        <!-- Stage 2 Button -->
+                        <button onclick="setActiveStep(2)" id="step-btn-2" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 02</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">First Impression / Empty State</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-eye text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 3 Button -->
+                        <button onclick="setActiveStep(3)" id="step-btn-3" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 03</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Add First Job Application</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-plus text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 4 Button -->
+                        <button onclick="setActiveStep(4)" id="step-btn-4" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 04</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">View Pipeline Overview</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-chart-pie text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 5 Button -->
+                        <button onclick="setActiveStep(5)" id="step-btn-5" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 05</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Explore & Manage Statuses</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-sliders text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 6 Button -->
+                        <button onclick="setActiveStep(6)" id="step-btn-6" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 06</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Add Calendar Milestones</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-calendar-days text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 7 Button -->
+                        <button onclick="setActiveStep(7)" id="step-btn-7" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 07</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Upload Resume to Vault</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-cloud-arrow-up text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 8 Button -->
+                        <button onclick="setActiveStep(8)" id="step-btn-8" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 08</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Link Resume to Application</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-link text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 9 Button -->
+                        <button onclick="setActiveStep(9)" id="step-btn-9" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 09</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Return & Continue Tracking</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-arrows-spin text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+
+                        <!-- Stage 10 Button -->
+                        <button onclick="setActiveStep(10)" id="step-btn-10" class="step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700">
+                            <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Stage 10</span>
+                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1">Reflect on Progress</span>
+                            <div class="flex justify-between items-center w-full mt-1">
+                                <i class="fa-solid fa-chart-column text-xs text-slate-400"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Step Detail Pane -->
+                <div id="step-content-pane" class="bg-slate-50 dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800 p-6 rounded-2xl relative transition-all min-h-[300px]">
+                    <!-- Information populated on-demand via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Part 4: Demand/Value Hypothesis -->
+            <section id="hypothesis" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-amber-50 dark:bg-amber-950 rounded-xl flex items-center justify-center text-amber-500">
+                        <i class="fa-solid fa-lightbulb text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 4: Demand / Value Hypothesis</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <span class="px-2.5 py-1 bg-sky-50 text-sky-600 dark:bg-sky-950 dark:text-sky-400 text-xs font-bold rounded-lg mb-4 inline-block">Problem Scenario</span>
+                        <p class="text-sm font-semibold text-slate-600 dark:text-slate-300 leading-relaxed text-left">
+                            Job seekers must reliably track multiple job applications simultaneously—including job titles, organizations, key timelines, descriptions, and current stages—so they can manage their search with confidence and keep opportunities moving forward.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <span class="px-2.5 py-1 bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-400 text-xs font-bold rounded-lg mb-4 inline-block">Current Alternatives</span>
+                        <p class="text-sm font-semibold text-slate-600 dark:text-slate-300 leading-relaxed text-left">
+                            Generic data spreadsheets, local text note files, browser bookmark lists, clogged email search queues, or simple unassisted memory. These methods are flexible but disjointed, making it difficult to gauge pipeline health or see which resume variation went where.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <span class="px-2.5 py-1 bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400 text-xs font-bold rounded-lg mb-4 inline-block">Demand/Value Hypothesis</span>
+                        <p class="text-sm font-semibold leading-relaxed text-emerald-600 dark:text-emerald-400 font-bold text-left">
+                            "If we supply job seekers with a dedicated tracking ecosystem combining pipeline data visualizations, structural status tracking, job description storage, and contextual document linking, they will maintain logs more consistently and feel much more in control."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 5: Solution Testing & Epic Metrics -->
+            <section id="solution-testing" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-50 dark:bg-indigo-950 rounded-xl flex items-center justify-center text-indigo-500">
+                        <i class="fa-solid fa-flask text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 5: Designing a Testable Solution</h2>
+                </div>
+
+                <!-- Epic Focus Card -->
+                <div class="bg-indigo-50/40 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900 p-6 rounded-2xl mb-8">
+                    <span class="px-2.5 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-bold rounded-lg uppercase tracking-wider mb-3 inline-block">Primary Validation Epic Focus</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Epic 1: Fully Consolidated Search Workspace Tracking</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-left">
+                        <em>"As an active job seeker, I want to log, organise, and review my job applications in one dashboard so that I can manage my job search pipeline more clearly and make better follow-up decisions."</em>
+                    </p>
+                </div>
+
+                <!-- Dependent Variables -->
+                <div class="mb-8">
+                    <h4 class="font-bold text-sm uppercase text-slate-400 mb-3 tracking-wider text-left">Dependent Variables Tracked</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+                            <span class="block text-sm font-bold text-slate-800 dark:text-slate-200 text-left">1. Entry Logging Speed</span>
+                            <span class="text-xs text-slate-400 text-left block">Ratio of users moving past creation trigger sheets.</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+                            <span class="block text-sm font-bold text-slate-800 dark:text-slate-200 text-left">2. Real-Time Stage Shifts</span>
+                            <span class="text-xs text-slate-400 text-left block">Action counts indicating status progress tracking over time.</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+                            <span class="block text-sm font-bold text-slate-800 dark:text-slate-200 text-left">3. Document Linkage</span>
+                            <span class="text-xs text-slate-400 text-left block">Ratio of tailored resume assets connected directly to tracking logs.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Searchable child metrics grid -->
+                <div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                        <h4 class="font-bold text-sm uppercase text-slate-400 tracking-wider">Metrics Instrument Directory</h4>
+                        <div class="relative w-full md:w-80">
+                            <input type="text" id="metric-search" oninput="searchMetrics()" placeholder="Search metrics or events..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400 text-xs"></i>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-50/70 dark:bg-slate-800/50">
+                                    <th class="p-4 font-bold text-slate-400 uppercase">Child Epic Story Target</th>
+                                    <th class="p-4 font-bold text-slate-400 uppercase">Analytical Objective Questions</th>
+                                    <th class="p-4 font-bold text-slate-400 uppercase">Tracked Interface Events</th>
+                                    <th class="p-4 font-bold text-slate-400 uppercase">Derived Product Success Formula</th>
+                                </tr>
+                            </thead>
+                            <tbody id="metrics-table-body" class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Add job application</td>
+                                    <td class="p-4">Do users understand how to start tracking a new application?</td>
+                                    <td class="p-4"><code>new_application_clicked</code>, <code>application_created</code></td>
+                                    <td class="p-4">Form completion & abandonment rate</td>
+                                </tr>
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Store job description context</td>
+                                    <td class="p-4">Does description logging drive application card returns?</td>
+                                    <td class="p-4"><code>job_description_added</code>, <code>job_description_viewed</code></td>
+                                    <td class="p-4">% of applications with description texts</td>
+                                </tr>
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Update logs lifecycle state</td>
+                                    <td class="p-4">Are user cohorts actively keeping tracking records fresh?</td>
+                                    <td class="p-4"><code>status_updated</code></td>
+                                    <td class="p-4">Ratio of items shifted away from initial status</td>
+                                </tr>
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Examine core visual views</td>
+                                    <td class="p-4">Is the visual progress grid showing continuous value?</td>
+                                    <td class="p-4"><code>pipeline_overview_viewed</code></td>
+                                    <td class="p-4">Views logged immediately following an application add</td>
+                                </tr>
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Filter & sorting controls</td>
+                                    <td class="p-4">Which criteria are most critical during user lookups?</td>
+                                    <td class="p-4"><code>status_filter_applied</code>, <code>sort_option_changed</code></td>
+                                    <td class="p-4">Total lookups transitioning to record views</td>
+                                </tr>
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Insert resume variants</td>
+                                    <td class="p-4">How often are targeted resumes loaded per active user?</td>
+                                    <td class="p-4"><code>resume_upload_started</code>, <code>resume_uploaded</code></td>
+                                    <td class="p-4">Upload success ratios and total uploads</td>
+                                </tr>
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold">Link resumes directly to jobs</td>
+                                    <td class="p-4">Are users connecting tailored files to tracking card entities?</td>
+                                    <td class="p-4"><code>resume_linked_to_application</code></td>
+                                    <td class="p-4">% of applications mapping specific files</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 6: Information Architecture Directory Maps -->
+            <section id="info-architecture" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-purple-50 dark:bg-purple-950 rounded-xl flex items-center justify-center text-purple-500">
+                        <i class="fa-solid fa-sitemap text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 6: Information Architecture Directory</h2>
+                </div>
+
+                <p class="text-sm text-slate-500 mb-6 text-left">
+                    Explore the complete interaction structure of JobCompass below. Use the node links to drill into the system maps.
+                </p>
+
+                <!-- Responsive Collapsible Interactive Folder Tree -->
+                <div class="bg-slate-50 dark:bg-slate-800/30 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 space-y-3 font-mono text-xs text-left">
+                    
+                    <!-- Entry Layer -->
+                    <div class="border-b border-slate-200/50 dark:border-slate-800/50 pb-3">
+                        <button onclick="toggleNode('node-entry')" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 focus:outline-none w-full">
+                            <i id="icon-node-entry" class="fa-solid fa-chevron-down text-sky-500"></i>
+                            <span>1. Entry & Validation Gateways</span>
+                        </button>
+                        <div id="node-entry" class="pl-6 mt-2 space-y-1 text-slate-500">
+                            <p>├── <span class="font-bold text-slate-700 dark:text-slate-300">1.1 Login Page Gateway</span> (Value indicators, branding layouts)</p>
+                            <p>└── <span class="font-bold text-slate-700 dark:text-slate-300">1.2 Auth Configurations</span></p>
+                            <p class="pl-6">├── <span class="text-emerald-500">Google Auth (Cloud Sync)</span> (Firestore storage, document vaults, active cross-device sync)</p>
+                            <p class="pl-6">└── <span class="text-amber-500">Guest Sandboxing (Local Fallback)</span> (Cache persistence only, upload limits warning)</p>
+                        </div>
+                    </div>
+
+                    <!-- Global Shell -->
+                    <div class="border-b border-slate-200/50 dark:border-slate-800/50 pb-3">
+                        <button onclick="toggleNode('node-shell')" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 focus:outline-none w-full">
+                            <i id="icon-node-shell" class="fa-solid fa-chevron-down text-sky-500"></i>
+                            <span>2. Global App Shell Framework</span>
+                        </button>
+                        <div id="node-shell" class="pl-6 mt-2 space-y-1 text-slate-500">
+                            <p>├── <span class="font-bold text-slate-700 dark:text-slate-300">2.1 Dynamic Sidebar Controller Navigation</span> (Quick triggers, metrics access, calendar, settings)</p>
+                            <p>└── <span class="font-bold text-slate-700 dark:text-slate-300">2.2 System Interface Global Toggles</span></p>
+                            <p class="pl-6">├── Interface view styles: Light vs Dark mode theme controls</p>
+                            <p class="pl-6">└── Synced state tracking flags (Live, Guest Local, Offline, Upload Locked)</p>
+                        </div>
+                    </div>
+
+                    <!-- Main Workspace Views -->
+                    <div>
+                        <button onclick="toggleNode('node-views')" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 focus:outline-none w-full">
+                            <i id="icon-node-views" class="fa-solid fa-chevron-down text-sky-500"></i>
+                            <span>3. Secondary Workspace View Structures</span>
+                        </button>
+                        <div id="node-views" class="pl-6 mt-2 space-y-1 text-slate-500">
+                            <!-- New App View -->
+                            <div class="pl-3 mt-1">
+                                <span class="font-bold text-slate-700 dark:text-slate-300">3.1 "New Application" Dynamic Data Sheets</span>
+                                <p class="pl-6">├── Role and Org indicators (arrangements, maps, location tags, dates)</p>
+                                <p class="pl-6">├── Compensation and milestone setups (interview rounds, target salaries)</p>
+                                <p class="pl-6">├── Posting link context matches (criteria checks, ratings, desc copy areas)</p>
+                                <p class="pl-6">└── Documents mapping (link configurations, file system access, notes)</p>
+                            </div>
+                            <!-- Overview View -->
+                            <div class="pl-3 mt-1">
+                                <span class="font-bold text-slate-700 dark:text-slate-300">3.2 "Pipeline Overview" Main Dashboard</span>
+                                <p class="pl-6">├── Total cards layout (Total tracked logs, interviewing counts, job offers)</p>
+                                <p class="pl-6">├── Visual analytics bars (interactive lifecycle percentages, counts)</p>
+                                <p class="pl-6">└── Recent entry links (quick actions index list for recent files)</p>
+                            </div>
+                            <!-- Explorer -->
+                            <div class="pl-3 mt-1">
+                                <span class="font-bold text-slate-700 dark:text-slate-300">3.3 "Status Explorer" Database Tables</span>
+                                <p class="pl-6">├── Complete grids database (sorting criteria, keyword query filtering)</p>
+                                <p class="pl-6">└── Direct stage adjustments panels (dropdowns, task markers, custom nodes)</p>
+                            </div>
+                            <!-- Calendar -->
+                            <div class="pl-3 mt-1">
+                                <span class="font-bold text-slate-700 dark:text-slate-300">3.4 "Interaction Calendar" Timelines</span>
+                                <p class="pl-6">├── Responsive month schedule views (chronological layout index lists)</p>
+                                <p class="pl-6">└── Event parameters (submissions, deadlines, assessments, follow-ups)</p>
+                            </div>
+                            <!-- Resume Vault -->
+                            <div class="pl-3 mt-1">
+                                <span class="font-bold text-slate-700 dark:text-slate-300">3.5 "Resume Vault" Document Storage Vault</span>
+                                <p class="pl-6">├── Upload engines (dropzones, formats limits validation [PDF/DOCX max 1MB])</p>
+                                <p class="pl-6">└── Active files list portfolios (mapping controls, tag selectors, date ordering)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Part 7: Searchable FAQs & Accordions -->
+            <section id="faqs" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-amber-50 dark:bg-amber-950 rounded-xl flex items-center justify-center text-amber-500">
+                            <i class="fa-solid fa-circle-question text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 7: Document Frequently Asked Questions</h2>
+                    </div>
+                    <div class="relative w-full md:w-80">
+                        <input type="text" id="faq-search" oninput="searchFAQs()" placeholder="Search specifications FAQs..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400 text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- FAQ accordion modules, programmatically targetable -->
+                <div id="faq-accordion-list" class="space-y-4">
+                    
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(0)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q1: What structural problem does JobCompass solve?</span>
+                            <i id="faq-chevron-0" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-0" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            JobCompass solves the problem of <strong>fragmented job search management</strong>. Active job seekers often apply to multiple roles at once and rely on scattered, manual tools like spreadsheets, generic notes, browser bookmarks, and email folders. This quickly becomes unmanageable because job searches involve multiple moving parts: job descriptions, application dates, tailored resumes, follow-up timelines, and interview stages. JobCompass brings these scattered elements into one focused, cohesive tracking workspace.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(1)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q2: How does the application solve that problem?</span>
+                            <i id="faq-chevron-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-1" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            It introduces a unified system featuring an <strong>interactive pipeline analytics dashboard</strong>, a <strong>status explorer</strong>, an <strong>interaction calendar</strong>, and a <strong>resume vault</strong>. The dashboard provides an instant, high-level overview of search progress, while the status explorer tracks individual opportunities as they shift across stages. The calendar handles critical interview and follow-up milestones, and the resume vault links specific CV versions directly to corresponding applications.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(2)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q3: Who is the target user?</span>
+                            <i id="faq-chevron-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-2" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The target user is an active job seeker balancing multiple applications and managing tailored resume variations for different roles. It is built specifically for anyone who needs an organized way to track exactly what they submitted, where each application stands, and when upcoming interviews or follow-ups require attention.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(3)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q4: Why not just use a spreadsheet or calendar app?</span>
+                            <i id="faq-chevron-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-3" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            While spreadsheets offer flexibility, they lack built-in pipeline visualizations, direct resume-to-job linking, and automated milestone tracking. Similarly, generic calendar apps store dates but disconnect them from the broader application context—such as the job description, the specific resume version used, current application status, and historical notes. JobCompass unites these needs into one tailored workflow.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(4)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q5: What is the main value proposition of JobCompass?</span>
+                            <i id="faq-chevron-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-4" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The primary value proposition is bringing clear structure, confidence, and consistency to the job search. Instead of losing track of details across different applications, users have immediate, centralized visibility into their status records, submission histories, file versions, and upcoming action items.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(5)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q6: What is the key hypothesis behind JobCompass?</span>
+                            <i id="faq-chevron-5" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-5" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            If active job seekers are given a dedicated tool that combines application tracking, pipeline visualization, calendar-based milestone tracking, job description storage, and resume linking, then they will log applications more consistently, update statuses more frequently, follow up more reliably, and feel more in control of their job search process.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(6)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q7: What would success look like for this product?</span>
+                            <i id="faq-chevron-6" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-6" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            Success means users move beyond just logging an application to actively updating and maintaining their pipeline over time. This includes adjusting statuses, tracking calendar milestones, creating follow-up actions, and referencing linked resumes when preparing for interviews. A successful product becomes an essential part of the user's daily job search routine.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(7)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q8: What metrics would you track?</span>
+                            <i id="faq-chevron-7" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-7" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            We track both behavioral and qualitative metrics. Behavioral metrics include form completion rates, status update frequencies, dashboard return patterns, calendar event creation, resume uploads, and feature interaction metrics. Qualitatively, we measure changes in user confidence, perceived organization, and interview readiness through feedback surveys.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(8)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q9: What is the most important metric?</span>
+                            <i id="faq-chevron-8" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-8" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The single most critical metric is successful job application management behaviour over time. While signups demonstrate initial interest, real value is proven when users repeatedly return across multiple sessions to update statuses, review their pipeline analytics, and organize upcoming interview milestones.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
+                        <button onclick="toggleFAQ(9)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q10: How would you test whether users actually need or use this?</span>
+                            <i id="faq-chevron-9" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-9" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The core concept emerged from qualitative interviews, user surveys, and extensive desk research confirming a clear user preference for a unified tracking tool. To validate further, we run usability tests with our interactive prototype, evaluating how efficiently users complete key tasks like adding applications, scheduling interviews, uploading resumes, and linking files.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(10)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q11: What assumptions are you making?</span>
+                            <i id="faq-chevron-10" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-10" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            We assume job seekers find fragmented tracking painful enough to switch to a dedicated tool, and that they see clear value in linking resumes and tracking milestones within a single app. We also assume a strong preference for mobile access, as data shows many job seekers manage their search on the go. Testing helps ensure this added structure feels supportive rather than burdensome.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(11)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q12: What might be the biggest risk with this product?</span>
+                            <i id="faq-chevron-11" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-11" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The primary risk is product abandonment if the platform begins to feel like tedious admin work for already exhausted job seekers. To mitigate this, the core logging workflow must remain incredibly lightweight. Optional details are tucked away using progressive disclosure, keeping fields like title and company simple and fast, while generating calendar milestones automatically.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(12)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q13: How would you improve the onboarding experience?</span>
+                            <i id="faq-chevron-12" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-12" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            Instead of launching users onto an empty dashboard, onboarding guides them directly to a single high-value action: logging their first job application. Once created, the app instantly demonstrates how that single log populates the pipeline overview and sets up calendar milestones, clearly showing the platform's value right from the start.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(13)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q14: How would you measure engagement?</span>
+                            <i id="faq-chevron-13" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-13" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            Engagement is measured by how consistently users update and maintain their application pipelines. We monitor the frequency of status changes, calendar views, resume links, and search queries. For JobCompass, high engagement isn't about long session durations, but rather quick, frequent, and productive check-ins.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(14)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q15: How would you know if JobCompass improves the UX?</span>
+                            <i id="faq-chevron-14" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-14" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            By combining product analytics with direct user sentiment tracking. Success is proven when data shows steady pipeline updates and strong user retention, paired with qualitative feedback confirming that users feel more organized, less anxious, and more in control of their job search.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(15)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q16: What trade-offs did you consider during the scoping process?</span>
+                            <i id="faq-chevron-15" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-15" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            We carefully balanced completeness against simplicity. While an application can track dozens of unique data fields, forcing users to fill them all out upfront causes friction. We also balanced flexibility against structure—ensuring the app provides enough guidance to prevent the messiness of a spreadsheet, while remaining adaptable to individual workflows.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(16)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q17: What did you build first as an MVP?</span>
+                            <i id="faq-chevron-16" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-16" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The MVP focuses on the core user loop: logging an application, viewing it within a visual pipeline, updating its status, and returning to manage details. The calendar component is kept simple, tracking only essential dates (applications, interviews, follow-ups) to avoid feature creep. The current live interactive prototype serves as this foundational MVP.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(17)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q18: What would you do if users do not return after first use?</span>
+                            <i id="faq-chevron-17" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-17" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            We look closely at the initial onboarding experience. If users drop off immediately, it usually means the entry form was too long, empty states felt confusing, or the immediate value wasn't clear. We address this by simplifying entry fields, sharpening our onboarding call-to-actions, and conducting user interviews to pinpoint friction points.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(18)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q19: How does the calendar improve the overall product experience?</span>
+                            <i id="faq-chevron-18" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-18" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            The calendar translates static application entries into timely, actionable schedules. Showing exactly when an application was sent, when an interview is coming up, or when a follow-up is due removes the mental burden of tracking dates across multiple platforms or relying entirely on memory.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(20)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q20: What would you be careful about with the calendar feature?</span>
+                            <i id="faq-chevron-19" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-19" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            We must avoid over-engineering the calendar into a general-purpose lifestyle planner, which dilutes our product focus. It must remain strictly dedicated to job search milestones. Testing also helps determine how much automation users prefer versus manual calendar customization.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(20)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q21: What did you learn from creating this framework?</span>
+                            <i id="faq-chevron-20" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-20" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            It emphasized that UX design concepts must connect directly to measurable user behaviors. True organization isn't just a feeling; it's reflected in concrete actions like updating pipelines, linking resumes, and tracking tasks. The CX metrics framework helps bridge the gap between design choices and user actions.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(21)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q22: If you had more time, what would you do next?</span>
+                            <i id="faq-chevron-21" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-21" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            I would run deeper validation rounds with active job seekers through focused usability tests. From there, I'd refine our tracking analytics to ensure every monitored event provides actionable product insights. Long-term features like notification systems, direct Google Calendar syncing, and automated form-filling would be prioritized based on continuous user feedback.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
+                        <button onclick="toggleFAQ(22)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
+                            <span>Q23: Why does JobCompass need a Google login? Where is data saved?</span>
+                            <i id="faq-chevron-22" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="faq-content-22" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
+                            Google authentication provides a secure way to save and persist sensitive job search data in our cloud database, making it available across all user devices. While Guest Mode offers a safe, isolated sandbox for testing, data is saved locally to the browser cache and risks being wiped. Clear privacy messaging ensures users always know how their data is handled, stored, and managed.
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Appendix Section: Screenshots -->
+            <section id="appendix" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all text-left">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-50 dark:bg-indigo-950 rounded-xl flex items-center justify-center text-indigo-500">
+                        <i class="fa-solid fa-images text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Appendix: High-Fidelity App Previews</h2>
+                </div>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-8 leading-relaxed max-w-3xl">
+                    High-fidelity visual representations of the JobCompass production design system showing responsive UI layers optimized for both Light Mode and Dark Mode workflows.
+                </p>
+
+                <div class="space-y-12">
+                    <!-- Dashboard Group -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-2 text-slate-900 dark:text-white border-l-4 border-sky-500 pl-3">
+                            Pipeline Overview Dashboard View
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-500 mb-6 max-w-2xl font-medium">
+                            Displays core telemetry cards (Tracked Opportunities, Pending Applications, Active Interviews, and Offers) alongside a detailed metrics distribution bar.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Light Mode -->
+                            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-3 transition-all hover:shadow-lg hover:shadow-slate-100 dark:hover:shadow-none">
+                                <div class="overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 aspect-[16/10]">
+                                    <img src="JobCompass_2.jpg" alt="Pipeline Overview - Light Mode" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" onerror="this.src='https://placehold.co/800x500/f8fafc/0284c7?text=Pipeline+Overview+Light+Mode'">
+                                </div>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Light Mode Interface</span>
+                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded-full font-semibold">Active UI</span>
+                                </div>
+                            </div>
+                            <!-- Dark Mode -->
+                            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-3 transition-all hover:shadow-lg hover:shadow-slate-100 dark:hover:shadow-none">
+                                <div class="overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 aspect-[16/10]">
+                                    <img src="JobCompass_6.jpg" alt="Pipeline Overview - Dark Mode" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" onerror="this.src='https://placehold.co/800x500/0f172a/38bdf8?text=Pipeline+Overview+Dark+Mode'">
+                                </div>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Dark Mode Interface</span>
+                                    <span class="text-[10px] bg-sky-950/50 text-sky-400 px-2 py-0.5 rounded-full font-semibold">Active UI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explorer Group -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-2 text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3">
+                            Status Explorer Database Grid
+                        </h3>
+                        <p class="text-xs text-slate-400 dark:text-slate-500 mb-6 max-w-2xl font-medium">
+                            Features rich visual application logs configured with metadata overlays, matching index ratings, and dynamic lifecycle stage selectors.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Light Mode -->
+                            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-3 transition-all hover:shadow-lg hover:shadow-slate-100 dark:hover:shadow-none">
+                                <div class="overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 aspect-[16/10]">
+                                    <img src="JobCompass_3.jpg" alt="Status Explorer - Light Mode" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" onerror="this.src='https://placehold.co/800x500/f8fafc/0284c7?text=Status+Explorer+Light+Mode'">
+                                </div>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Light Mode Interface</span>
+                                    <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded-full font-semibold">Active UI</span>
+                                </div>
+                            </div>
+                            <!-- Dark Mode -->
+                            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-3 transition-all hover:shadow-lg hover:shadow-slate-100 dark:hover:shadow-none">
+                                <div class="overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 aspect-[16/10]">
+                                    <img src="JobCompass_7.jpg" alt="Status Explorer - Dark Mode" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" onerror="this.src='https://placehold.co/800x500/0f172a/38bdf8?text=Status+Explorer+Dark+Mode'">
+                                </div>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Dark Mode Interface</span>
+                                    <span class="text-[10px] bg-sky-950/50 text-sky-400 px-2 py-0.5 rounded-full font-semibold">Active UI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Study Document Footer -->
+            <footer class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center max-w-4xl mx-auto">
+                <p class="text-sm text-slate-500 dark:text-slate-400 font-semibold">
+                    Explore more projects inside <a href="https://merlinkun.figma.site/showcase" target="_blank" class="text-sky-500 hover:underline">Merlin's Portfolio Hub</a>.
+                </p>
+                <p class="text-xs text-slate-400 mt-4 leading-relaxed italic max-w-2xl mx-auto">
+                    Transparency in AI Usage: This document was prepared with the assistance of Artificial Intelligence tools, specifically Google Gemini, ChatGPT, and Grammarly. All content, data analysis, and strategic conclusions remain the final responsibility of the author, Merlin Cheng.
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Logic Layer for Interactive Elements -->
+    <script>
+        // Theme switching logic
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.className = "fa-solid fa-moon";
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.className = "fa-solid fa-sun text-yellow-400";
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply saved theme on boot
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) themeIcon.className = "fa-solid fa-sun text-yellow-400";
+        }
+
+        // Mobile Menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // CX Table Filtering
+        function filterCX(stage) {
+            const rows = document.querySelectorAll('.cx-row');
+            const buttons = document.querySelectorAll('#cx-framework button');
+            
+            // Clean active classes
+            buttons.forEach(btn => {
+                btn.className = "px-3 py-1.5 text-xs text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-bold transition-all";
+            });
+
+            // Target sender
+            const activeBtn = Array.from(buttons).find(b => b.textContent.includes(stage) || (stage === 'all' && b.id === 'cx-all-btn'));
+            if (activeBtn) {
+                activeBtn.className = "px-3 py-1.5 bg-sky-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all";
+            }
+
+            rows.forEach(row => {
+                if (stage === 'all' || row.getAttribute('data-stage') === stage) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+        }
+
+        // User Journey Map Stepper Engine Data
+        const journeySteps = {
+            1: {
+                title: "Stage 1: Discover / Access JobCompass",
+                goal: "Understand what JobCompass does and decide whether to try it.",
+                actions: "User arrives at the login screen and chooses to sign in with Google or try the guest/local fallback mode.",
+                touchpoints: "Login screen, Google login integration, guest mode.",
+                thoughts: "“This looks like a focused tool for managing job applications. I want to see if it is easier than my spreadsheet.”",
+                painpoints: "User may not immediately understand the difference between JobCompass and existing tools like spreadsheets or Notion.",
+                opps: "Add a short value proposition on the login screen, such as “Track applications, resumes, interviews, and follow-ups in one place.”",
+                metrics: "Login completion rate; guest mode usage rate; drop-off rate at login.",
+                emoji: "🤔",
+                icon: "fa-solid fa-magnifying-glass"
+            },
+            2: {
+                title: "Stage 2: First Impression / Empty State",
+                goal: "Understand where to begin onboarding inside the pipeline.",
+                actions: "User enters the app and lands on the Pipeline Overview dashboard. They scan the sidebar, dashboard cards, pipeline chart, and recent entries section.",
+                touchpoints: "Pipeline Overview, sidebar navigation, New Application button, dashboard cards.",
+                thoughts: "“This gives me an overview of my job search, but I need to add something first.”",
+                painpoints: "If the dashboard is empty or unclear, the user may feel unsure what to do next.",
+                opps: "Use guided empty states and a clear first action: “Start by adding your first job application.”",
+                metrics: "New application button click rate; time to first action; dashboard bounce rate.",
+                emoji: "😐",
+                icon: "fa-solid fa-eye"
+            },
+            3: {
+                title: "Stage 3: Add First Job Application",
+                goal: "Log their first job application quickly and confidently.",
+                actions: "User clicks “New Application” and enters details such as job title, company, application date, status, job description, interview date, follow-up date, and job posting link.",
+                touchpoints: "New Application form, job details fields, status selector, job description field, date fields.",
+                thoughts: "“I want to capture enough information so I do not lose track later, but I do not want this to take too long.”",
+                painpoints: "Form may feel too long if too many fields are required upfront. User may not have all information ready.",
+                opps: "Use progressive disclosure: only require role, company, status, and application date first. Let users add job description, resume, interview date, and follow-up date later.",
+                metrics: "New application completion rate; form abandonment rate; average time to complete new application form; number of required fields completed.",
+                emoji: "😐",
+                icon: "fa-solid fa-plus"
+            },
+            4: {
+                title: "Stage 4: View Pipeline Overview",
+                goal: "See a high-level summary of their job search progress.",
+                actions: "After adding an application, user returns to the Pipeline Overview and sees updated metrics, such as total scoped opportunities, sent applications, interviews pipeline, job offers, and status distribution.",
+                touchpoints: "Pipeline Overview dashboard, metrics cards, pipeline distribution chart, recent tracking entries.",
+                thoughts: "“Now I can see where my applications stand at a glance.”",
+                painpoints: "With only one or two applications, the dashboard may not feel very useful yet.",
+                opps: "Show helpful microcopy such as “Your insights will become more meaningful as you add more applications.” Include recent entries for quick access.",
+                metrics: "Dashboard return rate; dashboard views after application creation; recent entry click-through rate.",
+                emoji: "😄",
+                icon: "fa-solid fa-chart-pie"
+            },
+            5: {
+                title: "Stage 5: Explore and Manage Application Statuses",
+                goal: "Review applications and update progress.",
+                actions: "User goes to Status Explorer, searches or filters applications, opens a job card, views job details, and updates the status from applied to interviewing, rejected, offered, ghosted, or no longer interested.",
+                touchpoints: "Status Explorer, search bar, filter, sort, application cards, status dropdown.",
+                thoughts: "“I can quickly find a role and update what happened.”",
+                painpoints: "User may not know what some statuses mean, or may forget to update statuses regularly.",
+                opps: "Add status descriptions, gentle prompts, and reminders for applications that have not been updated after a certain period.",
+                metrics: "Status update frequency; percentage of applications with at least one status update; search/filter usage rate.",
+                emoji: "😮",
+                icon: "fa-solid fa-sliders"
+            },
+            6: {
+                title: "Stage 6: Add Calendar Milestones",
+                goal: "Track time-sensitive job search actions.",
+                actions: "User checks the Interaction Calendar to see application dates, interview dates, follow-up dates, and custom events. They may create a custom event for preparation, follow-up, or interview reminders.",
+                touchpoints: "Interaction Calendar, month view, agenda list, selected day agenda, custom event creation.",
+                thoughts: "“This helps me see what is coming up and what I need to prepare for.”",
+                painpoints: "User may already use Google Calendar and may not want to maintain another calendar manually.",
+                opps: "Make the calendar job-search-specific. Auto-generate calendar milestones from application details, such as application date, interview date, and follow-up date.",
+                metrics: "Calendar view rate; custom event creation rate; follow-up date usage rate; interview date usage rate.",
+                emoji: "😮",
+                icon: "fa-solid fa-calendar-days"
+            },
+            7: {
+                title: "Stage 7: Upload Resume to Resume Vault",
+                goal: "Store tailored resume versions in one place.",
+                actions: "User goes to Resume Vault and uploads a resume file. They can later download it or link it to a specific job application.",
+                touchpoints: "Resume Vault, upload area, active resume portfolio, download action.",
+                thoughts: "“This helps me remember which resume I used for which job.”",
+                painpoints: "User may not immediately see why they should upload resumes if they already store them in folders.",
+                opps: "Explain the value of resume-job linking: “Track which resume version was submitted for each application.”",
+                metrics: "Resume upload completion rate; number of resumes uploaded per user; resume download rate.",
+                emoji: "😌",
+                icon: "fa-solid fa-cloud-arrow-up"
+            },
+            8: {
+                title: "Stage 8: Link Resume to Job Application",
+                goal: "Connect a tailored resume to the correct application.",
+                actions: "User links an uploaded resume to a specific job application, allowing them to review what they submitted later.",
+                touchpoints: "Resume-job linking, application detail view, Resume Vault linked status.",
+                thoughts: "“If I get an interview, I can quickly check which resume I sent.”",
+                painpoints: "User may forget to link the resume if the feature is hidden or comes too late in the workflow.",
+                opps: "Prompt users to link a resume after they upload one or after they create a new application.",
+                metrics: "Percentage of applications linked to resumes; resume linking rate after upload; linked resume views.",
+                emoji: "☺️",
+                icon: "fa-solid fa-link"
+            },
+            9: {
+                title: "Stage 9: Return and Continue Tracking",
+                goal: "Keep JobCompass updated as the job search progresses.",
+                actions: "User returns after a few days to update statuses, check upcoming follow-ups, review recent entries, add new applications, or prepare for interviews.",
+                touchpoints: "Pipeline Overview, Status Explorer, Calendar, Resume Vault, recent tracking entries.",
+                thoughts: "“This is becoming my job search control centre.”",
+                painpoints: "If users do not get enough value after first use, they may return to spreadsheets or memory.",
+                opps: "Add weekly summaries, “applications needing attention,” follow-up reminders, and recent activity shortcuts.",
+                metrics: "7-day retention; 14-day retention; 30-day retention; repeat sessions per user; number of active applications maintained.",
+                emoji: "😄",
+                icon: "fa-solid fa-arrows-spin"
+            },
+            10: {
+                title: "Stage 10: Reflect on Progress",
+                goal: "Understand job search patterns and make better decisions.",
+                actions: "User reviews the dashboard to see how many applications are active, rejected, interviewing, or offered. They may identify whether they need to follow up, apply more, or adjust their resume strategy.",
+                touchpoints: "Pipeline Overview, status distribution chart, application history, resume links, calendar milestones.",
+                thoughts: "“I can see what is happening across my job search instead of guessing.”",
+                painpoints: "Current analytics may be descriptive but not yet deeply actionable.",
+                opps: "Add future insights such as response rate, follow-up success rate, role-type comparison, or resume version performance.",
+                metrics: "Dashboard insight usage; user-reported clarity; user-reported confidence; perceived usefulness score.",
+                emoji: "🤔",
+                icon: "fa-solid fa-chart-column"
+            }
+        };
+
+        function setActiveStep(stepNumber) {
+            // Update directory buttons styling
+            document.querySelectorAll('.step-btn').forEach((btn, index) => {
+                const stepIdx = index + 1;
+                const iconElement = btn.querySelector('i');
+                const badgeElement = btn.querySelector('span:first-child');
+                const titleElement = btn.querySelector('span:nth-child(2)');
+                const actionLabel = btn.querySelector('span:last-child');
+                
+                if (stepIdx === stepNumber) {
+                    btn.className = "step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-sky-500 shadow-md shadow-sky-500/5 hover:border-sky-500 active-step-style";
+                    badgeElement.className = "text-xs font-bold text-sky-500 dark:text-sky-400";
+                    titleElement.className = "text-xs font-extrabold text-slate-800 dark:text-slate-100 line-clamp-2 mt-1 leading-tight flex-1";
+                    iconElement.className = `${journeySteps[stepIdx].icon} text-xs text-sky-500`;
+                    
+                    // Add Active indicator on the selected element
+                    if (!actionLabel || actionLabel.textContent !== "Active") {
+                        const statusContainer = btn.querySelector('div') || document.createElement('div');
+                        statusContainer.className = "flex justify-between items-center w-full mt-1";
+                        statusContainer.innerHTML = `<i class="${journeySteps[stepIdx].icon} text-xs text-sky-500"></i><span class="text-[10px] text-sky-500 font-extrabold uppercase">Active</span>`;
+                    }
+                } else {
+                    btn.className = "step-btn p-3 text-left border rounded-xl transition-all flex flex-col justify-between h-24 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-850 hover:border-slate-300 dark:hover:border-slate-700";
+                    badgeElement.className = "text-xs font-bold text-slate-400 dark:text-slate-500";
+                    titleElement.className = "text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1";
+                    iconElement.className = `${journeySteps[stepIdx].icon} text-xs text-slate-400`;
+                    
+                    // Clean up indicator on non-active elements
+                    const statusContainer = btn.querySelector('div');
+                    if (statusContainer) {
+                        statusContainer.innerHTML = `<i class="${journeySteps[stepIdx].icon} text-xs text-slate-400"></i>`;
+                    }
+                }
+            });
+
+            // Update badge content
+            document.getElementById('active-step-badge').textContent = `Viewing Stage ${stepNumber}`;
+
+            // Build dynamic text content inside layout frame
+            const data = journeySteps[stepNumber];
+            const container = document.getElementById('step-content-pane');
+            
+            container.innerHTML = `
+                <div class="space-y-6 animate-fade-in text-left">
+                    <div class="flex items-center justify-between border-b pb-4 dark:border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-sky-50 dark:bg-sky-950/40 rounded-xl flex items-center justify-center text-sky-500">
+                                <i class="${data.icon} text-lg"></i>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-extrabold text-slate-950 dark:text-white">${data.title}</h4>
+                        </div>
+                        <span class="text-3xl">${data.emoji}</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm">
+                        <div class="space-y-4">
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">User Goal</span>
+                                <p class="text-slate-700 dark:text-slate-200 font-semibold leading-relaxed">${data.goal}</p>
+                            </div>
+                            
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">User Actions</span>
+                                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">${data.actions}</p>
+                            </div>
+
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">User Thoughts & Feelings</span>
+                                <p class="text-slate-600 dark:text-slate-400 italic bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 p-3.5 rounded-xl">"${data.thoughts}"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Touchpoints / Features</span>
+                                <p class="text-slate-700 dark:text-slate-300 font-semibold flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-dot text-sky-500 text-[10px]"></i> ${data.touchpoints}
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                                <div class="p-3 bg-red-50/50 dark:bg-red-950/10 border border-red-100 dark:border-red-900/50 rounded-xl">
+                                    <span class="block text-xs font-bold text-red-500 uppercase tracking-wider mb-1">Possible Pain Points</span>
+                                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${data.painpoints}</p>
+                                </div>
+
+                                <div class="p-3 bg-emerald-50/50 dark:bg-emerald-950/10 border border-emerald-100 dark:border-emerald-900/50 rounded-xl">
+                                    <span class="block text-xs font-bold text-emerald-500 uppercase tracking-wider mb-1">Design Opportunities</span>
+                                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${data.opps}</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Success Metrics</span>
+                                <p class="text-slate-500 dark:text-slate-400 font-mono text-xs leading-relaxed">${data.metrics}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize active step
+        setActiveStep(1);
+
+        // Information Architecture Tree node mechanics
+        function toggleNode(nodeId) {
+            const node = document.getElementById(nodeId);
+            const icon = document.getElementById(`icon-${nodeId}`);
+            if (node.classList.contains('hidden')) {
+                node.classList.remove('hidden');
+                icon.className = "fa-solid fa-chevron-down text-sky-500";
+            } else {
+                node.classList.add('hidden');
+                icon.className = "fa-solid fa-chevron-right text-slate-400";
+            }
+        }
+
+        // FAQ accordion mechanics
+        function toggleFAQ(idx) {
+            const content = document.getElementById(`faq-content-${idx}`);
+            const chevron = document.getElementById(`faq-chevron-${idx}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                chevron.className = "fa-solid fa-chevron-up text-sky-500 transition-transform duration-200";
+            } else {
+                content.classList.add('hidden');
+                chevron.className = "fa-solid fa-chevron-down text-slate-400 transition-transform duration-200";
+            }
+        }
+
+        // Metrics Table Dynamic Filter
+        function searchMetrics() {
+            const query = document.getElementById('metric-search').value.toLowerCase();
+            const rows = document.querySelectorAll('.metric-row');
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+        }
+
+        // FAQ Accordion Dynamic Filter
+        function searchFAQs() {
+            const query = document.getElementById('faq-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.faq-accordion-card');
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Sidebar active link highlighting on scroll based on viewport client boundary positions
+        const sidebarLinks = document.querySelectorAll('aside nav a');
+
+        function highlightSidebarLink(activeId) {
+            sidebarLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                const icon = link.querySelector('i');
+                if (href === `#${activeId}`) {
+                    // Elevated Contrast Active Mode
+                    link.className = "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold text-sky-600 bg-sky-100/70 dark:text-sky-400 dark:bg-slate-800/80 border-r-4 border-sky-500 transition-all";
+                    if (icon) {
+                        icon.className = icon.className.replace(/text-slate-400/g, 'text-sky-500');
+                    }
+                } else {
+                    // Standard State with High Contrast Hover Attributes
+                    link.className = "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-all border-r-4 border-transparent group";
+                    if (icon) {
+                        icon.className = icon.className.replace(/text-sky-500/g, 'text-slate-400');
+                    }
+                }
+            });
+        }
+
+        // High-performance continuous viewport tracking mechanism to fix ScrollSpy highlights
+        function scrollSpy() {
+            const sections = document.querySelectorAll('section, #hero');
+            const scrollPos = window.scrollY || document.documentElement.scrollTop;
+            
+            let currentSectionId = 'hero';
+            
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                // If top of section is scrolled past the active reading threshold line (160px from top)
+                if (rect.top <= 160) {
+                    currentSectionId = sec.getAttribute('id');
+                }
+            });
+            
+            // Hard fallback selection for end-of-page triggers
+            if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 60) {
+                currentSectionId = 'appendix';
+            }
+            
+            highlightSidebarLink(currentSectionId);
+        }
+        
+        window.addEventListener('scroll', scrollSpy);
+        window.addEventListener('resize', scrollSpy);
+        // Fire initialization check to configure correct landing highlight
+        scrollSpy();
+    </script>
+</body>
+</html>
