@@ -74,7 +74,7 @@
             <div class="p-6 border-b border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-gradient-to-tr from-sky-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-sky-500/20">
-                        <i class="fa-solid fa-compass text-lg"></i>
+                        <i class="fa-solid fa-compass text-lg animate-pulse"></i>
                     </div>
                     <div>
                         <h1 class="text-xl font-bold bg-gradient-to-r from-sky-600 to-indigo-600 dark:from-sky-400 dark:to-indigo-400 bg-clip-text text-transparent">JobCompass</h1>
@@ -132,7 +132,7 @@
                     <button onclick="toggleTheme()" class="flex items-center justify-center gap-2 p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium transition-all">
                         <i id="theme-icon" class="fa-solid fa-moon"></i> Theme
                     </button>
-                    <a href="https://www.linkedin.com/in/merlinkun/" target="_blank" class="flex items-center justify-center gap-2 p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 dark:text-slate-100 rounded-lg text-xs font-medium transition-all">
+                    <a href="https://www.linkedin.com/in/merlinkun/" target="_blank" class="flex items-center justify-center gap-2 p-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium transition-all">
                         <i class="fa-brands fa-linkedin text-blue-600"></i> Connect
                     </a>
                 </div>
@@ -194,7 +194,7 @@
                     <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
                         JobCompass: Navigating the Career Pipeline
                     </h1>
-                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl font-normal">
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl">
                         A focused tracking architecture solving job search fragmentation. Designed specifically for active job seekers tailoring multiple resumes, storing complex descriptions, and managing time-sensitive interview milestones.
                     </p>
 
@@ -243,7 +243,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-7 space-y-4">
-                        <p class="text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300">
+                        <p class="text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300 text-left">
                             "For <span class="text-indigo-500 font-bold">active job seekers</span> who are applying to multiple roles and tailoring their resumes for different job descriptions..."
                         </p>
                         <p class="text-slate-600 dark:text-slate-400 text-left">
@@ -275,7 +275,7 @@
                 </div>
             </section>
 
-            <!-- Part 2: Customer Experience Metrics Framework -->
+            <!-- Part 2: Customer Experience (CX) Metrics Framework -->
             <section id="cx-framework" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                     <div class="flex items-center gap-3">
@@ -498,13 +498,13 @@
                     <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <span class="px-2.5 py-1 bg-sky-50 text-sky-600 dark:bg-sky-950 dark:text-sky-400 text-xs font-bold rounded-lg mb-4 inline-block">Problem Scenario</span>
                         <p class="text-sm font-semibold text-slate-600 dark:text-slate-300 leading-relaxed text-left">
-                            Job seekers must reliably track multiple job applications simultaneously—including job titles, organizations, key timelines, descriptions, and current stages—so they can manage their search with confidence and keep opportunities moving forward.
+                            Job seekers need to keep track of multiple job applications, including job titles, companies, application dates, job descriptions, statuses, and outcomes, so that they can manage their job search more confidently and avoid losing track of opportunities.
                         </p>
                     </div>
                     <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <span class="px-2.5 py-1 bg-indigo-50 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-400 text-xs font-bold rounded-lg mb-4 inline-block">Current Alternatives</span>
                         <p class="text-sm font-semibold text-slate-600 dark:text-slate-300 leading-relaxed text-left">
-                            Generic data spreadsheets, local text note files, browser bookmark lists, clogged email search queues, or simple unassisted memory. These methods are flexible but disjointed, making it difficult to gauge pipeline health or see which resume variation went where.
+                            They currently use spreadsheets, notes apps, browser bookmark lists, clogged email search queues, or simple unassisted memory. These methods are flexible but disjointed, making it difficult to gauge pipeline health or see which resume variation went where.
                         </p>
                     </div>
                     <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800">
@@ -522,43 +522,169 @@
                     <div class="w-10 h-10 bg-indigo-50 dark:bg-indigo-950 rounded-xl flex items-center justify-center text-indigo-500">
                         <i class="fa-solid fa-flask text-xl"></i>
                     </div>
-                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 5: Designing a Testable Solution</h2>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 5: Designing a Testable Solution for the Value/Demand Hypothesis</h2>
                 </div>
 
-                <!-- Epic Focus Card -->
-                <div class="bg-indigo-50/40 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900 p-6 rounded-2xl mb-8">
-                    <span class="px-2.5 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-bold rounded-lg uppercase tracking-wider mb-3 inline-block">Primary Validation Epic Focus</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Epic 1: Fully Consolidated Search Workspace Tracking</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-left">
-                        <em>"As an active job seeker, I want to log, organise, and review my job applications in one dashboard so that I can manage my job search pipeline more clearly and make better follow-up decisions."</em>
-                    </p>
-                </div>
+                <!-- Epic User Stories Directory List -->
+                <div class="space-y-4 mb-8 text-left">
+                    <h3 class="font-extrabold text-lg text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 mb-4">Epic User Stories</h3>
+                    
+                    <!-- Epic 1 Default View -->
+                    <div class="p-5 border border-indigo-200 dark:border-indigo-900 bg-indigo-50/40 dark:bg-indigo-950/20 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center text-white text-xs font-black">E1</span>
+                            <span class="font-bold text-slate-900 dark:text-white">Epic 1 (Primary Detail Focus): Consolidating Workspace Tracking</span>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 italic pl-11">
+                            "As an active job seeker, I want to log, organise, and review my job applications in one dashboard so that I can manage my job search pipeline more clearly and make better follow-up decisions."
+                        </p>
+                    </div>
 
-                <!-- Dependent Variables -->
-                <div class="mb-8">
-                    <h4 class="font-bold text-sm uppercase text-slate-400 mb-3 tracking-wider text-left">Dependent Variables Tracked</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
-                            <span class="block text-sm font-bold text-slate-800 dark:text-slate-200 text-left">1. Entry Logging Speed</span>
-                            <span class="text-xs text-slate-400 text-left block">Ratio of users moving past creation trigger sheets.</span>
+                    <!-- Epic 2 Dropdown -->
+                    <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-900/30">
+                        <button onclick="toggleEpic(2)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-black">E2</span>
+                                <span>Epic 2: Visual Overview & Pipeline Summary Dashboard</span>
+                            </div>
+                            <i id="epic-chevron-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="epic-content-2" class="hidden p-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 space-y-4">
+                            <p class="text-sm text-slate-600 dark:text-slate-300 italic">
+                                "As an active job seeker, I want to view a visual overview of my job application pipeline so that I can quickly understand the current state of my job search."
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Dependent Variable</span>
+                                    <p class="text-slate-600 dark:text-slate-400">Dashboard return loop validation and core metrics overview click frequency.</p>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Success Criteria</span>
+                                    <p class="text-slate-600 dark:text-slate-400">User completes form entries and opens the pipeline metrics layout to confirm tracking changes.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
-                            <span class="block text-sm font-bold text-slate-800 dark:text-slate-200 text-left">2. Real-Time Stage Shifts</span>
-                            <span class="text-xs text-slate-400 text-left block">Action counts indicating status progress tracking over time.</span>
+                    </div>
+
+                    <!-- Epic 3 Dropdown -->
+                    <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-900/30">
+                        <button onclick="toggleEpic(3)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-black">E3</span>
+                                <span>Epic 3: Lifecycle Stage & Status Management</span>
+                            </div>
+                            <i id="epic-chevron-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="epic-content-3" class="hidden p-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 space-y-4">
+                            <p class="text-sm text-slate-600 dark:text-slate-300 italic">
+                                "As an active job seeker, I want to update the status of each job application so that I can monitor progress from application to interview, offer, rejection, or no longer interested."
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Dependent Variable</span>
+                                    <p class="text-slate-600 dark:text-slate-400">Stage adjustment velocity across the 8 standard pipeline statuses.</p>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Success Criteria</span>
+                                    <p class="text-slate-600 dark:text-slate-400">User shifts logged opportunities past initial entry state toward advanced selection parameters.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
-                            <span class="block text-sm font-bold text-slate-800 dark:text-slate-200 text-left">3. Document Linkage</span>
-                            <span class="text-xs text-slate-400 text-left block">Ratio of tailored resume assets connected directly to tracking logs.</span>
+                    </div>
+
+                    <!-- Epic 4 Dropdown -->
+                    <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-900/30">
+                        <button onclick="toggleEpic(4)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-black">E4</span>
+                                <span>Epic 4: Resume Vault & Asset Portfolio Organizer</span>
+                            </div>
+                            <i id="epic-chevron-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="epic-content-4" class="hidden p-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 space-y-4">
+                            <p class="text-sm text-slate-600 dark:text-slate-300 italic">
+                                "As an active job seeker, I want to upload and organise tailored resumes so that I can keep track of which resume version I used for each application."
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Dependent Variable</span>
+                                    <p class="text-slate-600 dark:text-slate-400">Total resume file uploads compiled in authenticated accounts.</p>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Success Criteria</span>
+                                    <p class="text-slate-600 dark:text-slate-400">User successfully uploads PDF or DOCX variants with sizes beneath 1MB boundaries.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Epic 5 Dropdown -->
+                    <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-900/30">
+                        <button onclick="toggleEpic(5)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-black">E5</span>
+                                <span>Epic 5: Resume-to-Job Relational Mapping</span>
+                            </div>
+                            <i id="epic-chevron-5" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="epic-content-5" class="hidden p-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 space-y-4">
+                            <p class="text-sm text-slate-600 dark:text-slate-300 italic">
+                                "As an active job seeker, I want to link a specific resume to a specific job application so that I can review and improve my application strategy over time."
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Dependent Variable</span>
+                                    <p class="text-slate-600 dark:text-slate-400">Relative density ratio of mapped files divided by total logged items.</p>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-slate-400 uppercase tracking-wider mb-1">Success Criteria</span>
+                                    <p class="text-slate-600 dark:text-slate-400">Active records are explicitly mapped directly to customized PDF resumes in the Vault portfolio.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Searchable child metrics grid -->
+                <!-- Epic 1 - Detail Block -->
+                <div class="p-6 bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800 rounded-2xl mb-8 text-left">
+                    <h4 class="font-extrabold text-sm uppercase text-slate-400 mb-2">Epic 1 - Detail</h4>
+                    <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                        Selected Epic User Story:
+                    </p>
+                    <p class="text-sm text-indigo-600 dark:text-indigo-400 italic mt-2 leading-relaxed">
+                        "As an active job seeker, I want to log, organise, and review my job applications in one dashboard so that I can manage my job search pipeline more clearly and make better follow-up decisions."
+                    </p>
+                </div>
+
+                <!-- Dependent Variable / Goal for Epic 1 -->
+                <div class="p-6 bg-indigo-50/50 dark:bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl mb-8 text-left">
+                    <h3 class="font-black text-lg text-slate-900 dark:text-white mb-2">Dependent Variable / Goal for Epic 1</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                        The most important question for this epic is whether users are actually using JobCompass to manage their job search pipeline instead of relying on fragmented tools such as spreadsheets, notes, folders, and email inboxes.
+                    </p>
+                    <p class="text-sm text-slate-900 dark:text-white font-bold mb-3">
+                        The key dependent variable is: <span class="text-indigo-600 dark:text-indigo-400 underline decoration-2">Successful job application tracking behaviour.</span>
+                    </p>
+                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">This can be observed through the following behaviours:</span>
+                    <ol class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-decimal pl-5">
+                        <li>Users create job application entries.</li>
+                        <li>Users update application statuses after creating entries.</li>
+                        <li>Users view the pipeline overview after adding applications.</li>
+                        <li>Users upload resumes into the resume vault.</li>
+                        <li>Users link resumes to specific job applications.</li>
+                        <li>Users return to the app after initial use to continue managing their applications.</li>
+                        <li class="font-extrabold text-indigo-600 dark:text-indigo-400">
+                            The core success metric is whether users create and maintain a meaningful job application pipeline over time, rather than only using the app once.
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Child Stories & Analytics for Epic 1 -->
                 <div>
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                        <h4 class="font-bold text-sm uppercase text-slate-400 tracking-wider">Metrics Instrument Directory</h4>
+                        <h3 class="font-black text-lg text-slate-900 dark:text-white">Child Stories & Analytics for Epic 1</h3>
                         <div class="relative w-full md:w-80">
-                            <input type="text" id="metric-search" oninput="searchMetrics()" placeholder="Search metrics or events..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            <input type="text" id="metric-search" oninput="searchMetrics()" placeholder="Search child stories or events..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500">
                             <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400 text-xs"></i>
                         </div>
                     </div>
@@ -567,58 +693,197 @@
                         <table class="w-full text-left border-collapse text-xs">
                             <thead>
                                 <tr class="bg-slate-50/70 dark:bg-slate-800/50">
-                                    <th class="p-4 font-bold text-slate-400 uppercase">Child Epic Story Target</th>
-                                    <th class="p-4 font-bold text-slate-400 uppercase">Analytical Objective Questions</th>
-                                    <th class="p-4 font-bold text-slate-400 uppercase">Tracked Interface Events</th>
-                                    <th class="p-4 font-bold text-slate-400 uppercase">Derived Product Success Formula</th>
+                                    <th class="p-4 font-bold text-slate-400 uppercase w-1/3">Child Stories</th>
+                                    <th class="p-4 font-bold text-slate-400 uppercase w-1/3">Analytical Question(s)</th>
+                                    <th class="p-4 font-bold text-slate-400 uppercase w-1/3">Analytics</th>
                                 </tr>
                             </thead>
                             <tbody id="metrics-table-body" class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <!-- Row 1 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Add job application</td>
-                                    <td class="p-4">Do users understand how to start tracking a new application?</td>
-                                    <td class="p-4"><code>new_application_clicked</code>, <code>application_created</code></td>
-                                    <td class="p-4">Form completion & abandonment rate</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to add a new job application so that I can keep track of the role, company, job description, application date, and current status.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users understand how to start tracking a new application?<br>
+                                        How often do users complete the “New Application” flow after starting it?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>new_application_clicked</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>application_created</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> New application completion rate = applications created / new application clicks</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Average time to complete new application form</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Form abandonment rate</div>
+                                    </td>
                                 </tr>
+                                <!-- Row 2 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Store job description context</td>
-                                    <td class="p-4">Does description logging drive application card returns?</td>
-                                    <td class="p-4"><code>job_description_added</code>, <code>job_description_viewed</code></td>
-                                    <td class="p-4">% of applications with description texts</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to store the job description for each application so that I can refer back to the role requirements later when tailoring resumes or preparing for interviews.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users add job descriptions when creating or editing an application?<br>
+                                        Does storing a job description make users more likely to return to that application later?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>job_description_added</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>job_description_viewed</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Percentage of applications with job descriptions</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Number of job description views per application</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Return rate to applications with job descriptions vs. without job descriptions</div>
+                                    </td>
                                 </tr>
+                                <!-- Row 3 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Update logs lifecycle state</td>
-                                    <td class="p-4">Are user cohorts actively keeping tracking records fresh?</td>
-                                    <td class="p-4"><code>status_updated</code></td>
-                                    <td class="p-4">Ratio of items shifted away from initial status</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to update the status of my applications so that I can see whether each role is applied, awaiting interview, interviewing, offered, rejected, ghosted, or no longer interested.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users regularly update application statuses? Which statuses are most frequently selected? Are users using the status system to maintain an accurate pipeline?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>status_updated</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event param:</span> <code>previous_status</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event param:</span> <code>new_status</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Status update frequency per user</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Percentage of applications with at least one status update</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Distribution of applications by status</div>
+                                    </td>
                                 </tr>
+                                <!-- Row 4 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Examine core visual views</td>
-                                    <td class="p-4">Is the visual progress grid showing continuous value?</td>
-                                    <td class="p-4"><code>pipeline_overview_viewed</code></td>
-                                    <td class="p-4">Views logged immediately following an application add</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to view my pipeline overview so that I can quickly understand how many applications are active, rejected, interviewing, or offered.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users use the pipeline overview after adding applications?<br>
+                                        Does the dashboard help users understand their job search progress?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>pipeline_overview_viewed</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Dashboard views per session</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Dashboard views after application creation</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400 font-bold">Metric:</span> Percentage of users who return to the dashboard after updating a status <span class="text-slate-400 italic">(Note: Might be hard to track as the Pipeline Overview is the default homepage)</span></div>
+                                    </td>
                                 </tr>
+                                <!-- Row 5 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Filter & sorting controls</td>
-                                    <td class="p-4">Which criteria are most critical during user lookups?</td>
-                                    <td class="p-4"><code>status_filter_applied</code>, <code>sort_option_changed</code></td>
-                                    <td class="p-4">Total lookups transitioning to record views</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to search and filter my tracked applications so that I can quickly find a specific job, company, or application status.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users need search and filtering once they have multiple applications?<br>
+                                        Which filters are most useful?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>application_search_used</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>status_filter_applied</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>sort_option_changed</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Search usage rate</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Filter usage rate</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Most commonly used filter type</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Search-to-application-open conversion rate</div>
+                                    </td>
                                 </tr>
+                                <!-- Row 6 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Insert resume variants</td>
-                                    <td class="p-4">How often are targeted resumes loaded per active user?</td>
-                                    <td class="p-4"><code>resume_upload_started</code>, <code>resume_uploaded</code></td>
-                                    <td class="p-4">Upload success ratios and total uploads</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to upload tailored resume versions so that I can organise different CVs for different types of jobs.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users use the resume vault to store their tailored resumes?<br>
+                                        How many resume versions do they upload?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>resume_upload_started</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>resume_uploaded</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>resume_downloaded</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Resume upload completion rate</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Number of resumes uploaded per user</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Resume downloads per user</div>
+                                    </td>
                                 </tr>
+                                <!-- Row 7 -->
                                 <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
-                                    <td class="p-4 font-semibold">Link resumes directly to jobs</td>
-                                    <td class="p-4">Are users connecting tailored files to tracking card entities?</td>
-                                    <td class="p-4"><code>resume_linked_to_application</code></td>
-                                    <td class="p-4">% of applications mapping specific files</td>
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to link a resume to a job application so that I know which resume version I submitted for each role.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users understand and use the resume-job linking feature?<br>
+                                        Does linking resumes increase the usefulness of the application tracker?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>resume_linked_to_application</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>linked_resume_viewed</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Percentage of applications linked to resumes</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Resume linking rate after resume upload</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Number of linked resumes per user</div>
+                                    </td>
+                                </tr>
+                                <!-- Row 8 -->
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to revisit previously logged applications to better prepare for follow-ups, interviews, and future applications.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Do users return to existing application entries after creating them?<br>
+                                        Which information do they revisit most often?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>application_card_opened</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>application_edited</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>job_description_viewed</code></div>
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>linked_resume_viewed</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Repeat visits to application entries</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Application edit frequency</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Most viewed application detail sections</div>
+                                    </td>
+                                </tr>
+                                <!-- Row 9 -->
+                                <tr class="metric-row hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-all text-left">
+                                    <td class="p-4 font-semibold leading-relaxed">
+                                        As an active job seeker, I want to see recent tracking entries so that I can quickly resume where I left off in my job search.
+                                    </td>
+                                    <td class="p-4 leading-relaxed">
+                                        Does the recent entries section help users re-engage with their latest applications?
+                                    </td>
+                                    <td class="p-4 space-y-1.5">
+                                        <div><span class="font-semibold text-sky-600 dark:text-sky-400">Event:</span> <code>recent_entry_clicked</code></div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Click-through rate from recent entries</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Percentage of sessions where recent entries are used</div>
+                                        <div><span class="font-semibold text-indigo-600 dark:text-indigo-400">Metric:</span> Time from dashboard load to recent entry click</div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+
+                <!-- Analytical Questions & Metrics Summary Section -->
+                <div class="mt-8 p-6 bg-slate-50 dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800 rounded-2xl text-left">
+                    <h4 class="font-black text-base text-slate-900 dark:text-white mb-2">Analytical Questions & Metrics Summary</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                        The main analytical question is: <strong class="text-indigo-600 dark:text-indigo-400">Does JobCompass help active job seekers maintain a clearer and more consistent job application tracking process?</strong>
+                    </p>
+                    <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+                        This can be answered through the following metrics:
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Application creation rate</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> New application form completion rate</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Status update frequency</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Percentage of applications with updated statuses</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Dashboard return rate</li>
+                        <div class="md:col-span-2 border-t dark:border-slate-800 my-2"></div>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Resume upload rate</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Percentage of applications linked to resumes</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Search and filter usage rate</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> Repeat visits to existing application entries</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chart-bar text-sky-500"></i> User retention across multiple sessions (sessions/days used)</li>
+                    </ul>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+                        A successful early version of JobCompass should show that users are not only creating application entries, but also returning to update statuses, reviewing their pipeline, and linking relevant resumes to specific job applications. These behaviours would suggest that the app is becoming part of their ongoing job search workflow rather than functioning as a one-time logging tool.
+                    </p>
                 </div>
             </section>
 
@@ -632,331 +897,209 @@
                 </div>
 
                 <p class="text-sm text-slate-500 mb-6 text-left">
-                    Explore the complete interaction structure of JobCompass below. Use the node links to drill into the system maps.
+                    Explore the complete interaction structure of JobCompass below. Click folders and modules to explore the exhaustive relational database, input properties, and routing logic compiled directly from the system specification.
                 </p>
 
-                <!-- Responsive Collapsible Interactive Folder Tree -->
-                <div class="bg-slate-50 dark:bg-slate-800/30 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 space-y-3 font-mono text-xs text-left">
+                <!-- High-Fidelity Interactive Expanded Folder Tree Visualizer -->
+                <div class="bg-slate-50 dark:bg-slate-800/30 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 space-y-4 font-sans text-sm text-left">
                     
-                    <!-- Entry Layer -->
-                    <div class="border-b border-slate-200/50 dark:border-slate-800/50 pb-3">
-                        <button onclick="toggleNode('node-entry')" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 focus:outline-none w-full">
-                            <i id="icon-node-entry" class="fa-solid fa-chevron-down text-sky-500"></i>
-                            <span>1. Entry & Validation Gateways</span>
+                    <!-- IA Section 1: Entry & Access Layers -->
+                    <div class="border-b border-slate-200/50 dark:border-slate-800/50 pb-4">
+                        <button onclick="toggleNode('node-entry')" class="flex items-center justify-between font-bold text-slate-800 dark:text-slate-200 focus:outline-none w-full group">
+                            <span class="flex items-center gap-2">
+                                <i id="icon-node-entry" class="fa-solid fa-chevron-down text-sky-500 transition-transform"></i>
+                                <i class="fa-solid fa-folder text-amber-500"></i>
+                                <span>1. Login & Verification Access Gateways</span>
+                            </span>
+                            <span class="text-xs text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200 transition-colors">Expand/Collapse Module</span>
                         </button>
-                        <div id="node-entry" class="pl-6 mt-2 space-y-1 text-slate-500">
-                            <p>├── <span class="font-bold text-slate-700 dark:text-slate-300">1.1 Login Page Gateway</span> (Value indicators, branding layouts)</p>
-                            <p>└── <span class="font-bold text-slate-700 dark:text-slate-300">1.2 Auth Configurations</span></p>
-                            <p class="pl-6">├── <span class="text-emerald-500">Google Auth (Cloud Sync)</span> (Firestore storage, document vaults, active cross-device sync)</p>
-                            <p class="pl-6">└── <span class="text-amber-500">Guest Sandboxing (Local Fallback)</span> (Cache persistence only, upload limits warning)</p>
+                        
+                        <div id="node-entry" class="pl-6 mt-3 space-y-3">
+                            <div class="p-3 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-1">1.1 Login Page Context Shell</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Introduces structural positioning values, login flows, and security details.</p>
+                                <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1">
+                                    <li>JobCompass SVG Logo brand element placement</li>
+                                    <li>Authentication panel (Google Login vs Local Sandbox Guest Fallback)</li>
+                                    <li>Interactive Privacy Notice explaining Cloud database storage vs local caches</li>
+                                    <li>System version flags (v0.2 Early Production Release metadata)</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-indigo-500 uppercase block mb-1">1.2 Identity sync protocols</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                    <div class="p-2.5 rounded-lg bg-emerald-500/5 border border-emerald-500/20">
+                                        <strong class="text-emerald-500 block mb-0.5"><i class="fa-solid fa-cloud-arrow-up"></i> Google Cloud Authorization (Sync Mode)</strong>
+                                        <p class="text-slate-500 dark:text-slate-400">Firestore database linkage. Full document sync capabilities, unlimited tailored resumes, cross-device persistence.</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-amber-500/5 border border-amber-500/20">
+                                        <strong class="text-amber-500 block mb-0.5"><i class="fa-solid fa-triangle-exclamation"></i> Guest Sandboxing (Sandbox Mode)</strong>
+                                        <p class="text-slate-500 dark:text-slate-400">Local cache fallback storage only. Data limits apply, resume vault restricted to mock testing assets.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Global Shell -->
-                    <div class="border-b border-slate-200/50 dark:border-slate-800/50 pb-3">
-                        <button onclick="toggleNode('node-shell')" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 focus:outline-none w-full">
-                            <i id="icon-node-shell" class="fa-solid fa-chevron-down text-sky-500"></i>
-                            <span>2. Global App Shell Framework</span>
+                    <!-- IA Section 2: Global App Shell Framework -->
+                    <div class="border-b border-slate-200/50 dark:border-slate-800/50 pb-4">
+                        <button onclick="toggleNode('node-shell')" class="flex items-center justify-between font-bold text-slate-800 dark:text-slate-200 focus:outline-none w-full group">
+                            <span class="flex items-center gap-2">
+                                <i id="icon-node-shell" class="fa-solid fa-chevron-down text-sky-500 transition-transform"></i>
+                                <i class="fa-solid fa-folder text-amber-500"></i>
+                                <span>2. Global App Shell Framework</span>
+                            </span>
+                            <span class="text-xs text-slate-400">Expand/Collapse Module</span>
                         </button>
-                        <div id="node-shell" class="pl-6 mt-2 space-y-1 text-slate-500">
-                            <p>├── <span class="font-bold text-slate-700 dark:text-slate-300">2.1 Dynamic Sidebar Controller Navigation</span> (Quick triggers, metrics access, calendar, settings)</p>
-                            <p>└── <span class="font-bold text-slate-700 dark:text-slate-300">2.2 System Interface Global Toggles</span></p>
-                            <p class="pl-6">├── Interface view styles: Light vs Dark mode theme controls</p>
-                            <p class="pl-6">└── Synced state tracking flags (Live, Guest Local, Offline, Upload Locked)</p>
+                        
+                        <div id="node-shell" class="pl-6 mt-3 space-y-3">
+                            <div class="p-3 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-1">2.1 Sidebar Dynamic Controller Navigation</span>
+                                <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1">
+                                    <li>Primary navigation nodes mapping: Pipeline Overview, Status Explorer, Calendar, Resume Vault</li>
+                                    <li>Day / Night visual rendering toggle controls</li>
+                                    <li>Sync Status Indicator panel: <code class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800">LIVE SYNC</code> vs <code class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800">LOCAL SANDBOX</code></li>
+                                    <li>Active user credentials panel (Google profile photo, email address, logout buttons)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Main Workspace Views -->
+                    <!-- IA Section 3: Main Navigation Structures -->
                     <div>
-                        <button onclick="toggleNode('node-views')" class="flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200 focus:outline-none w-full">
-                            <i id="icon-node-views" class="fa-solid fa-chevron-down text-sky-500"></i>
-                            <span>3. Secondary Workspace View Structures</span>
+                        <button onclick="toggleNode('node-views')" class="flex items-center justify-between font-bold text-slate-800 dark:text-slate-200 focus:outline-none w-full group">
+                            <span class="flex items-center gap-2">
+                                <i id="icon-node-views" class="fa-solid fa-chevron-down text-sky-500 transition-transform"></i>
+                                <i class="fa-solid fa-folder text-amber-500"></i>
+                                <span>3. Main Navigation Views & Attribute Models</span>
+                            </span>
+                            <span class="text-xs text-slate-400">Expand/Collapse Module</span>
                         </button>
-                        <div id="node-views" class="pl-6 mt-2 space-y-1 text-slate-500">
-                            <!-- New App View -->
-                            <div class="pl-3 mt-1">
-                                <span class="font-bold text-slate-700 dark:text-slate-300">3.1 "New Application" Dynamic Data Sheets</span>
-                                <p class="pl-6">├── Role and Org indicators (arrangements, maps, location tags, dates)</p>
-                                <p class="pl-6">├── Compensation and milestone setups (interview rounds, target salaries)</p>
-                                <p class="pl-6">├── Posting link context matches (criteria checks, ratings, desc copy areas)</p>
-                                <p class="pl-6">└── Documents mapping (link configurations, file system access, notes)</p>
+                        
+                        <div id="node-views" class="pl-6 mt-3 space-y-3">
+                            <!-- 3.1 New Application metrics -->
+                            <div class="p-4 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-2"><i class="fa-solid fa-file-invoice mr-1"></i> 3.1 "New Application" Data Sheet Inputs</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-500 dark:text-slate-400">
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.1.1 Core Fields:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Job Title & Company Name <span class="text-red-500 font-bold">*</span></li>
+                                            <li>Work Arrangement (Remote, Hybrid, Onsite)</li>
+                                            <li>Office location coordinates</li>
+                                            <li>Date Applied/Planned</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.1.2 Job Description Checks:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Context description text pasting (drives context keywords match engine)</li>
+                                            <li>Interest Rating & Competence Evaluation sliders</li>
+                                            <li>Target Salary details (Min/Max inputs)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Overview View -->
-                            <div class="pl-3 mt-1">
-                                <span class="font-bold text-slate-700 dark:text-slate-300">3.2 "Pipeline Overview" Main Dashboard</span>
-                                <p class="pl-6">├── Total cards layout (Total tracked logs, interviewing counts, job offers)</p>
-                                <p class="pl-6">├── Visual analytics bars (interactive lifecycle percentages, counts)</p>
-                                <p class="pl-6">└── Recent entry links (quick actions index list for recent files)</p>
+
+                            <!-- 3.2 Pipeline Overview metrics -->
+                            <div class="p-4 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-2"><i class="fa-solid fa-chart-pie mr-1"></i> 3.2 "Pipeline Overview" Main Dashboard</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-500 dark:text-slate-400">
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.2.1 Summary Metrics Cards:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Total Tracked Opportunities (active counter)</li>
+                                            <li>Active Applications (sent and pending)</li>
+                                            <li>Interviews Pipeline (active rounds scheduler)</li>
+                                            <li>Job Offers (successful targets achieved)</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.2.2 Pipeline Distribution Chart:</strong>
+                                        <p class="text-[11px] text-slate-500 mt-2 mb-2 leading-relaxed">
+                                            Aggregates active database status indicators to render visual breakdown graphs across the 8 standard stages:
+                                        </p>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Haven't Applied</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Applied</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Awaiting Interview</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Interviewing</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Offered</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Rejected</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">No Longer Interested</span>
+                                            <span class="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Ghosted (>2 Weeks)</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Explorer -->
-                            <div class="pl-3 mt-1">
-                                <span class="font-bold text-slate-700 dark:text-slate-300">3.3 "Status Explorer" Database Tables</span>
-                                <p class="pl-6">├── Complete grids database (sorting criteria, keyword query filtering)</p>
-                                <p class="pl-6">└── Direct stage adjustments panels (dropdowns, task markers, custom nodes)</p>
+
+                            <!-- 3.3 Status Explorer database -->
+                            <div class="p-4 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-2"><i class="fa-solid fa-sliders mr-1"></i> 3.3 "Status Explorer" Database Grid</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-500 dark:text-slate-400">
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.3.1 Application Database Row Attributes:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Job Title & Company Name</li>
+                                            <li>Current Status & Location</li>
+                                            <li>Tailored Resume Linked status indicator</li>
+                                            <li>Calculated JD match percentage badge</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.3.2 Query Sort & Filtering Options:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Filtering criteria based on the 8 core lifecycle statuses</li>
+                                            <li>Sort options: Date logged (newest/oldest), Job Title (A-Z/Z-A), Company Name (A-Z/Z-A)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Calendar -->
-                            <div class="pl-3 mt-1">
-                                <span class="font-bold text-slate-700 dark:text-slate-300">3.4 "Interaction Calendar" Timelines</span>
-                                <p class="pl-6">├── Responsive month schedule views (chronological layout index lists)</p>
-                                <p class="pl-6">└── Event parameters (submissions, deadlines, assessments, follow-ups)</p>
+
+                            <!-- 3.4 Interactive Calendar -->
+                            <div class="p-4 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-2"><i class="fa-solid fa-calendar-days mr-1"></i> 3.4 "Interactive Calendar" Timeline Schedulers</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-500 dark:text-slate-400">
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.4.1 Calendar Layouts & Event Types:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Month Grid overview + Chronological agenda timeline feed</li>
+                                            <li>Auto-generated events: Application submission dates, interview rounds, assessment deadlines, follow-up reminders, offer deadlines, preparation tasks</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.4.2 Day Agenda Panel Data Items:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Specific event category icon and type name</li>
+                                            <li>Linked job posting URL & Associated resume file links</li>
+                                            <li>Private preparation notes and action-item check boxes</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Resume Vault -->
-                            <div class="pl-3 mt-1">
-                                <span class="font-bold text-slate-700 dark:text-slate-300">3.5 "Resume Vault" Document Storage Vault</span>
-                                <p class="pl-6">├── Upload engines (dropzones, formats limits validation [PDF/DOCX max 1MB])</p>
-                                <p class="pl-6">└── Active files list portfolios (mapping controls, tag selectors, date ordering)</p>
+
+                            <!-- 3.5 Resume Vault parameters -->
+                            <div class="p-4 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                                <span class="font-extrabold text-xs text-sky-500 uppercase block mb-2"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> 3.5 "Resume Vault" Document Storage Vault</span>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-500 dark:text-slate-400">
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.5.1 Upload Engine & Limitations:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>File Drag-and-Drop sandbox area</li>
+                                            <li>Permitted formats: <code class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800">.PDF</code> and <code class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800">.DOCX</code></li>
+                                            <li>Size cap parameters: Max 1MB payload limits validation</li>
+                                            <li>Interactive "Google Login Required" popovers in guest sandbox</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-200 block border-b pb-1">3.5.2 Active Resume Portfolio Sorting:</strong>
+                                        <ul class="list-disc pl-4 space-y-1 mt-2">
+                                            <li>Sort parameters: Date Uploaded (newest/oldest), Original File Name (A-Z/Z-A), Resume Name (A-Z/Z-A), Tag Name (A-Z/Z-A), Linked Opportunity Count (highest/lowest)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                </div>
-            </section>
-
-            <!-- Part 7: Searchable FAQs & Accordions -->
-            <section id="faqs" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-12 shadow-sm transition-all">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-amber-50 dark:bg-amber-950 rounded-xl flex items-center justify-center text-amber-500">
-                            <i class="fa-solid fa-circle-question text-xl"></i>
-                        </div>
-                        <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Part 7: Document Frequently Asked Questions</h2>
-                    </div>
-                    <div class="relative w-full md:w-80">
-                        <input type="text" id="faq-search" oninput="searchFAQs()" placeholder="Search specifications FAQs..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-sky-500">
-                        <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400 text-xs"></i>
-                    </div>
-                </div>
-
-                <!-- FAQ accordion modules, programmatically targetable -->
-                <div id="faq-accordion-list" class="space-y-4">
-                    
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(0)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q1: What structural problem does JobCompass solve?</span>
-                            <i id="faq-chevron-0" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-0" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            JobCompass solves the problem of <strong>fragmented job search management</strong>. Active job seekers often apply to multiple roles at once and rely on scattered, manual tools like spreadsheets, generic notes, browser bookmarks, and email folders. This quickly becomes unmanageable because job searches involve multiple moving parts: job descriptions, application dates, tailored resumes, follow-up timelines, and interview stages. JobCompass brings these scattered elements into one focused, cohesive tracking workspace.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(1)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q2: How does the application solve that problem?</span>
-                            <i id="faq-chevron-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-1" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            It introduces a unified system featuring an <strong>interactive pipeline analytics dashboard</strong>, a <strong>status explorer</strong>, an <strong>interaction calendar</strong>, and a <strong>resume vault</strong>. The dashboard provides an instant, high-level overview of search progress, while the status explorer tracks individual opportunities as they shift across stages. The calendar handles critical interview and follow-up milestones, and the resume vault links specific CV versions directly to corresponding applications.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(2)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q3: Who is the target user?</span>
-                            <i id="faq-chevron-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-2" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The target user is an active job seeker balancing multiple applications and managing tailored resume variations for different roles. It is built specifically for anyone who needs an organized way to track exactly what they submitted, where each application stands, and when upcoming interviews or follow-ups require attention.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(3)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q4: Why not just use a spreadsheet or calendar app?</span>
-                            <i id="faq-chevron-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-3" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            While spreadsheets offer flexibility, they lack built-in pipeline visualizations, direct resume-to-job linking, and automated milestone tracking. Similarly, generic calendar apps store dates but disconnect them from the broader application context—such as the job description, the specific resume version used, current application status, and historical notes. JobCompass unites these needs into one tailored workflow.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(4)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q5: What is the main value proposition of JobCompass?</span>
-                            <i id="faq-chevron-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-4" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The primary value proposition is bringing clear structure, confidence, and consistency to the job search. Instead of losing track of details across different applications, users have immediate, centralized visibility into their status records, submission histories, file versions, and upcoming action items.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(5)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q6: What is the key hypothesis behind JobCompass?</span>
-                            <i id="faq-chevron-5" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-5" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            If active job seekers are given a dedicated tool that combines application tracking, pipeline visualization, calendar-based milestone tracking, job description storage, and resume linking, then they will log applications more consistently, update statuses more frequently, follow up more reliably, and feel more in control of their job search process.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(6)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q7: What would success look like for this product?</span>
-                            <i id="faq-chevron-6" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-6" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            Success means users move beyond just logging an application to actively updating and maintaining their pipeline over time. This includes adjusting statuses, tracking calendar milestones, creating follow-up actions, and referencing linked resumes when preparing for interviews. A successful product becomes an essential part of the user's daily job search routine.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(7)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q8: What metrics would you track?</span>
-                            <i id="faq-chevron-7" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-7" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            We track both behavioral and qualitative metrics. Behavioral metrics include form completion rates, status update frequencies, dashboard return patterns, calendar event creation, resume uploads, and feature interaction metrics. Qualitatively, we measure changes in user confidence, perceived organization, and interview readiness through feedback surveys.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(8)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q9: What is the most important metric?</span>
-                            <i id="faq-chevron-8" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-8" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The single most critical metric is successful job application management behaviour over time. While signups demonstrate initial interest, real value is proven when users repeatedly return across multiple sessions to update statuses, review their pipeline analytics, and organize upcoming interview milestones.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all text-left">
-                        <button onclick="toggleFAQ(9)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q10: How would you test whether users actually need or use this?</span>
-                            <i id="faq-chevron-9" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-9" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The core concept emerged from qualitative interviews, user surveys, and extensive desk research confirming a clear user preference for a unified tracking tool. To validate further, we run usability tests with our interactive prototype, evaluating how efficiently users complete key tasks like adding applications, scheduling interviews, uploading resumes, and linking files.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(10)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q11: What assumptions are you making?</span>
-                            <i id="faq-chevron-10" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-10" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            We assume job seekers find fragmented tracking painful enough to switch to a dedicated tool, and that they see clear value in linking resumes and tracking milestones within a single app. We also assume a strong preference for mobile access, as data shows many job seekers manage their search on the go. Testing helps ensure this added structure feels supportive rather than burdensome.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(11)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q12: What might be the biggest risk with this product?</span>
-                            <i id="faq-chevron-11" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-11" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The primary risk is product abandonment if the platform begins to feel like tedious admin work for already exhausted job seekers. To mitigate this, the core logging workflow must remain incredibly lightweight. Optional details are tucked away using progressive disclosure, keeping fields like title and company simple and fast, while generating calendar milestones automatically.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(12)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q13: How would you improve the onboarding experience?</span>
-                            <i id="faq-chevron-12" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-12" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            Instead of launching users onto an empty dashboard, onboarding guides them directly to a single high-value action: logging their first job application. Once created, the app instantly demonstrates how that single log populates the pipeline overview and sets up calendar milestones, clearly showing the platform's value right from the start.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(13)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q14: How would you measure engagement?</span>
-                            <i id="faq-chevron-13" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-13" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            Engagement is measured by how consistently users update and maintain their application pipelines. We monitor the frequency of status changes, calendar views, resume links, and search queries. For JobCompass, high engagement isn't about long session durations, but rather quick, frequent, and productive check-ins.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(14)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q15: How would you know if JobCompass improves the UX?</span>
-                            <i id="faq-chevron-14" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-14" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            By combining product analytics with direct user sentiment tracking. Success is proven when data shows steady pipeline updates and strong user retention, paired with qualitative feedback confirming that users feel more organized, less anxious, and more in control of their job search.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(15)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q16: What trade-offs did you consider during the scoping process?</span>
-                            <i id="faq-chevron-15" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-15" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            We carefully balanced completeness against simplicity. While an application can track dozens of unique data fields, forcing users to fill them all out upfront causes friction. We also balanced flexibility against structure—ensuring the app provides enough guidance to prevent the messiness of a spreadsheet, while remaining adaptable to individual workflows.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(16)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q17: What did you build first as an MVP?</span>
-                            <i id="faq-chevron-16" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-16" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The MVP focuses on the core user loop: logging an application, viewing it within a visual pipeline, updating its status, and returning to manage details. The calendar component is kept simple, tracking only essential dates (applications, interviews, follow-ups) to avoid feature creep. The current live interactive prototype serves as this foundational MVP.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(17)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q18: What would you do if users do not return after first use?</span>
-                            <i id="faq-chevron-17" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-17" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            We look closely at the initial onboarding experience. If users drop off immediately, it usually means the entry form was too long, empty states felt confusing, or the immediate value wasn't clear. We address this by simplifying entry fields, sharpening our onboarding call-to-actions, and conducting user interviews to pinpoint friction points.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(18)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q19: How does the calendar improve the overall product experience?</span>
-                            <i id="faq-chevron-18" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-18" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            The calendar translates static application entries into timely, actionable schedules. Showing exactly when an application was sent, when an interview is coming up, or when a follow-up is due removes the mental burden of tracking dates across multiple platforms or relying entirely on memory.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(20)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q20: What would you be careful about with the calendar feature?</span>
-                            <i id="faq-chevron-19" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-19" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            We must avoid over-engineering the calendar into a general-purpose lifestyle planner, which dilutes our product focus. It must remain strictly dedicated to job search milestones. Testing also helps determine how much automation users prefer versus manual calendar customization.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(20)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q21: What did you learn from creating this framework?</span>
-                            <i id="faq-chevron-20" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-20" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            It emphasized that UX design concepts must connect directly to measurable user behaviors. True organization isn't just a feeling; it's reflected in concrete actions like updating pipelines, linking resumes, and tracking tasks. The CX metrics framework helps bridge the gap between design choices and user actions.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(21)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q22: If you had more time, what would you do next?</span>
-                            <i id="faq-chevron-21" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-21" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            I would run deeper validation rounds with active job seekers through focused usability tests. From there, I'd refine our tracking analytics to ensure every monitored event provides actionable product insights. Long-term features like notification systems, direct Google Calendar syncing, and automated form-filling would be prioritized based on continuous user feedback.
-                        </div>
-                    </div>
-
-                    <div class="faq-accordion-card bg-slate-50 dark:bg-slate-800/20 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden text-left">
-                        <button onclick="toggleFAQ(22)" class="w-full p-5 text-left font-bold text-sm md:text-base text-slate-800 dark:text-slate-200 flex justify-between items-center focus:outline-none">
-                            <span>Q23: Why does JobCompass need a Google login? Where is data saved?</span>
-                            <i id="faq-chevron-22" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="faq-content-22" class="hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-3">
-                            Google authentication provides a secure way to save and persist sensitive job search data in our cloud database, making it available across all user devices. While Guest Mode offers a safe, isolated sandbox for testing, data is saved locally to the browser cache and risks being wiped. Clear privacy messaging ensures users always know how their data is handled, stored, and managed.
                         </div>
                     </div>
 
@@ -1249,7 +1392,6 @@
                     titleElement.className = "text-xs font-extrabold text-slate-800 dark:text-slate-100 line-clamp-2 mt-1 leading-tight flex-1";
                     iconElement.className = `${journeySteps[stepIdx].icon} text-xs text-sky-500`;
                     
-                    // Add Active indicator on the selected element
                     if (!actionLabel || actionLabel.textContent !== "Active") {
                         const statusContainer = btn.querySelector('div') || document.createElement('div');
                         statusContainer.className = "flex justify-between items-center w-full mt-1";
@@ -1261,7 +1403,6 @@
                     titleElement.className = "text-xs font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 mt-1 leading-tight flex-1";
                     iconElement.className = `${journeySteps[stepIdx].icon} text-xs text-slate-400`;
                     
-                    // Clean up indicator on non-active elements
                     const statusContainer = btn.querySelector('div');
                     if (statusContainer) {
                         statusContainer.innerHTML = `<i class="${journeySteps[stepIdx].icon} text-xs text-slate-400"></i>`;
@@ -1272,7 +1413,6 @@
             // Update badge content
             document.getElementById('active-step-badge').textContent = `Viewing Stage ${stepNumber}`;
 
-            // Build dynamic text content inside layout frame
             const data = journeySteps[stepNumber];
             const container = document.getElementById('step-content-pane');
             
@@ -1349,6 +1489,19 @@
             } else {
                 node.classList.add('hidden');
                 icon.className = "fa-solid fa-chevron-right text-slate-400";
+            }
+        }
+
+        // Epic Accordion toggles for Part 5
+        function toggleEpic(epicNum) {
+            const content = document.getElementById(`epic-content-${epicNum}`);
+            const chevron = document.getElementById(`epic-chevron-${epicNum}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                chevron.className = "fa-solid fa-chevron-up text-sky-500 transition-transform duration-200";
+            } else {
+                content.classList.add('hidden');
+                chevron.className = "fa-solid fa-chevron-down text-slate-400 transition-transform duration-200";
             }
         }
 
@@ -1441,7 +1594,6 @@
         
         window.addEventListener('scroll', scrollSpy);
         window.addEventListener('resize', scrollSpy);
-        // Fire initialization check to configure correct landing highlight
         scrollSpy();
     </script>
 </body>
